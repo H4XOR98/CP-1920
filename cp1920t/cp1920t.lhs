@@ -119,7 +119,7 @@ a84610 & Gonçalo Almeida
 \\
 a86788 & Lázaro Pinheiro	
 \\
-a33333 & Rúben Rodrigues
+a80960 & Rúben Rodrigues
 \end{tabular}
 \end{center}
 
@@ -975,7 +975,7 @@ dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
 tar = cataExp g where
-  g = either (singleton.split nil id) 
+  g = undefined--either (singleton.split nil id) 
 
 dic_rd = undefined
 
