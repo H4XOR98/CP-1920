@@ -983,6 +983,10 @@ dic_in = undefined
 
 \end{code}
 
+\subsubsection*{Diagramas}
+
+\paragraph*{tar}\mbox{} \\
+
 \begin{eqnarray*}
 \xymatrix@@C=5cm{
     |Exp V O|
@@ -1015,17 +1019,9 @@ insOrd' x = cataBTree g
 insOrd a x = undefined
 
 isOrd' = cataBTree g
-  where g = either (split (const True) (const Empty)) (\(x,((c,d),(e,f))) -> teste x d f) 
+  where g = either (split (const True) (const Empty)) (\(a,(esq,dir)) -> teste a esq dir) 
 
 isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
-
-
-teste ::(Ord a) => a -> BTree a -> BTree a -> (Bool,BTree a)
-teste a Empty Empty = (True,Node (a,(Empty,Empty)))
-teste a Empty (Node (c,d)) = (a <= c, Node (a,(Empty,(Node (c,d)))))
-teste a (Node (c,d)) Empty = (a >= c, Node (a,(((Node (c,d))),Empty)))
-teste a (Node (c,d)) (Node (x,y)) = (a >= c && a <= x,Node (a,(((Node (c,d))),((Node (x,y))))))
-
 
 rrot = undefined
 
@@ -1034,6 +1030,45 @@ lrot = undefined
 splay l t =  undefined
   
 \end{code}
+
+\subsubsection*{Diagramas}
+
+\paragraph*{maisDir}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=8cm{
+    |BTree A|
+           \ar[d]_-{|maisDir|}
+           \ar[r]_-{|outBTree|}
+&
+    |1 + (A >< (BTree A >< BTree A))|
+           \ar[d]^-{|id + (id >< (maisDir >< maisDir))|}
+\\
+     |Maybe A|
+&
+     |1 + (A >< (Maybe A >< Maybe A))|
+           \ar[l]^-{|g = either nothing (\(a,(_,s2)) -> if(isNothing s2) then Just a else s2)|}
+}
+\end{eqnarray*}
+
+
+\paragraph*{maisEsq}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=8cm{
+    |BTree A|
+           \ar[d]_-{|maisEsq|}
+           \ar[r]_-{|outBTree|}
+&
+    |1 + (A >< (BTree A >< BTree A))|
+           \ar[d]^-{|id + (id >< (maisEsq >< maisEsq))|}
+\\
+     |Maybe A|
+&
+     |1 + (A >< (Maybe A >< Maybe A))|
+           \ar[l]^-{|g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)|}
+}
+\end{eqnarray*}
 
 \subsubsection*{Funções Auxiliares}
 
@@ -1045,6 +1080,14 @@ isNothing Nothing = True
 isNothing _ = False
 \end{code}
 
+\begin{code}
+teste ::(Ord a) => a -> (Bool,BTree a) -> (Bool,BTree a) -> (Bool,BTree a)
+teste a (b1,Empty) (b2,Empty) = (b1 == b2,Node (a,(Empty,Empty)))
+teste a (b1,Empty) (b2,(Node (c,d))) = (b1 == b2 && a <= c, Node (a,(Empty,(Node (c,d)))))
+teste a (b1,(Node (c,d))) (b2,Empty) = (b1 == b2 && a >= c, Node (a,(((Node (c,d))),Empty)))
+teste a (b1,(Node (c,d))) (b2,(Node (x,y))) = (b1 == b2 && a >= c && a <= x,
+  Node (a,(((Node (c,d))),((Node (x,y))))))
+\end{code}
 
 \subsection*{Problema 3}
 

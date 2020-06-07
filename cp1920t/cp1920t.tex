@@ -1392,6 +1392,10 @@ outras funções auxiliares que sejam necessárias.
 \ColumnHook
 \end{hscode}\resethooks
 
+\subsubsection*{Diagramas}
+
+\paragraph*{tar}\mbox{} \\
+
 \begin{eqnarray*}
 \xymatrix@C=5cm{
     \ensuremath{\Conid{Exp}\;\Conid{V}\;\Conid{O}}
@@ -1436,7 +1440,7 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{isOrd'}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\conj{\underline{\Conid{True}}}{\underline{\Conid{Empty}}}}{\lambda (\Varid{a},(\Varid{esq},\Varid{dir}))\to \Varid{teste}\;\Varid{a}\;\Varid{esq}\;\Varid{dir}}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{isOrd}\mathrel{=}(\lambda \Varid{l}\to \Varid{and}\mathbin{\$}\Varid{zipWith}\;(\leq )\;\Varid{l}\;(\Varid{tail}\;\Varid{l}))\comp \Varid{inordt}{}\<[E]%
 \\[\blanklineskip]%
@@ -1448,6 +1452,45 @@ outras funções auxiliares que sejam necessárias.
 \>[14]{}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\subsubsection*{Diagramas}
+
+\paragraph*{maisDir}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=8cm{
+    \ensuremath{\fun{BTree} \;\Conid{A}}
+           \ar[d]_-{\ensuremath{\Varid{maisDir}}}
+           \ar[r]_-{\ensuremath{\Varid{outBTree}}}
+&
+    \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\times(\Varid{maisDir}\times\Varid{maisDir}))}}
+\\
+     \ensuremath{\Conid{Maybe}\;\Conid{A}}
+&
+     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\Conid{Maybe}\;\Conid{A}\times\Conid{Maybe}\;\Conid{A}))}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{s2}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s2})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s2}}}}
+}
+\end{eqnarray*}
+
+
+\paragraph*{maisEsq}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=8cm{
+    \ensuremath{\fun{BTree} \;\Conid{A}}
+           \ar[d]_-{\ensuremath{\Varid{maisEsq}}}
+           \ar[r]_-{\ensuremath{\Varid{outBTree}}}
+&
+    \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\times(\Varid{maisEsq}\times\Varid{maisEsq}))}}
+\\
+     \ensuremath{\Conid{Maybe}\;\Conid{A}}
+&
+     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\Conid{Maybe}\;\Conid{A}\times\Conid{Maybe}\;\Conid{A}))}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\Varid{s1},\anonymous ))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s1})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s1}}}}
+}
+\end{eqnarray*}
 
 \subsubsection*{Funções Auxiliares}
 
@@ -1464,6 +1507,24 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \ColumnHook
 \end{hscode}\resethooks
 
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{teste}\mathbin{::}(\Conid{Ord}\;\Varid{a})\Rightarrow \Varid{a}\to (\Conid{Bool},\fun{BTree} \;\Varid{a})\to (\Conid{Bool},\fun{BTree} \;\Varid{a})\to (\Conid{Bool},\fun{BTree} \;\Varid{a}){}\<[E]%
+\\
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Varid{b2},\Conid{Node}\;(\Varid{a},(\Conid{Empty},\Conid{Empty}))){}\<[E]%
+\\
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},(\Conid{Node}\;(\Varid{c},\Varid{d})))\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\leq \Varid{c},\Conid{Node}\;(\Varid{a},(\Conid{Empty},(\Conid{Node}\;(\Varid{c},\Varid{d}))))){}\<[E]%
+\\
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\geq \Varid{c},\Conid{Node}\;(\Varid{a},(((\Conid{Node}\;(\Varid{c},\Varid{d}))),\Conid{Empty}))){}\<[E]%
+\\
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},(\Conid{Node}\;(\Varid{x},\Varid{y})))\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\geq \Varid{c}\mathrel{\wedge}\Varid{a}\leq \Varid{x},{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Conid{Node}\;(\Varid{a},(((\Conid{Node}\;(\Varid{c},\Varid{d}))),((\Conid{Node}\;(\Varid{x},\Varid{y})))))){}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
 
 \subsection*{Problema 3}
 
