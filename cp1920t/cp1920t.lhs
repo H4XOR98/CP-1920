@@ -1015,10 +1015,9 @@ insOrd' x = cataBTree g
 insOrd a x = undefined
 
 isOrd' = cataBTree g
-  where g = undefined
+  where g = undefined 
 
-isOrd = undefined
-
+isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
 
 rrot = undefined
 

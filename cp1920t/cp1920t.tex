@@ -1438,7 +1438,7 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{isOrd}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{isOrd}\mathrel{=}(\lambda \Varid{l}\to \Varid{and}\mathbin{\$}\Varid{zipWith}\;(\leq )\;\Varid{l}\;(\Varid{tail}\;\Varid{l}))\comp \Varid{inordt}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{rrot}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
