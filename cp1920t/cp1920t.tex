@@ -1384,13 +1384,30 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{tar}\mathrel{=}\Varid{cataExp}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\bot \mbox{\onelinecomment either (singleton.split nil id) }{}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\bot \mbox{\onelinecomment either (singl.split nil id) }{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{dic\char95 rd}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{dic\char95 in}\mathrel{=}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\begin{eqnarray*}
+\xymatrix@C=5cm{
+    \ensuremath{\Conid{Exp}\;\Conid{V}\;\Conid{O}}
+           \ar[d]_-{\ensuremath{\Varid{tar}}}
+           \ar[r]_-{\ensuremath{\Varid{outExp}}}
+&
+    \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\mathbin{*})}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\map \;\Varid{tar})}}
+\\
+     \ensuremath{(\Conid{O}\mathbin{*}\times\Conid{V})\mathbin{*}}
+&
+     \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times((\Conid{O}\mathbin{*}\times\Conid{V})\mathbin{*})\mathbin{*})}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{singl}\comp \conj{\Varid{nil}}{\Varid{id}}}{\bot }}}
+}
+\end{eqnarray*}
+
 
 \subsection*{Problema 2}
 
@@ -1402,7 +1419,7 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{maisDir}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{c}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{c})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{c}}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{maisEsq}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
@@ -1431,6 +1448,22 @@ outras funções auxiliares que sejam necessárias.
 \>[14]{}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+\subsubsection*{Funções Auxiliares}
+
+\paragraph*{isNothing}\mbox{} \\
+Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de verdade do teste da condição.
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\Varid{isNothing}\mathbin{::}\Conid{Maybe}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\\
+\>[B]{}\Varid{isNothing}\;\Conid{Nothing}\mathrel{=}\Conid{True}{}\<[E]%
+\\
+\>[B]{}\Varid{isNothing}\;\anonymous \mathrel{=}\Conid{False}{}\<[E]%
+\ColumnHook
+\end{hscode}\resethooks
+
 
 \subsection*{Problema 3}
 

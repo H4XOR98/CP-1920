@@ -975,7 +975,7 @@ dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
 tar = cataExp g where
-  g = undefined--either (singleton.split nil id) 
+  g = undefined--either (singl.split nil id) 
 
 dic_rd = undefined
 
@@ -983,11 +983,28 @@ dic_in = undefined
 
 \end{code}
 
+\begin{eqnarray*}
+\xymatrix@@C=5cm{
+    |Exp V O|
+           \ar[d]_-{|tar|}
+           \ar[r]_-{|outExp|}
+&
+    |V + (O >< (Exp V O)*)|
+           \ar[d]^-{|id + id >< (map tar)|}
+\\
+     |(O* >< V)*|
+&
+     |V + (O >< ((O* >< V)*)*)|
+           \ar[l]^-{|g = either (singl.split nil id) undefined|}
+}
+\end{eqnarray*}
+
+
 \subsection*{Problema 2}
 
 \begin{code}
 maisDir = cataBTree g
-  where g = undefined
+  where g = either nothing (\(a,(_,c)) -> if(isNothing c) then Just a else c)
 
 maisEsq = cataBTree g
   where g = undefined
@@ -1010,6 +1027,17 @@ lrot = undefined
 splay l t =  undefined
   
 \end{code}
+
+\subsubsection*{Funções Auxiliares}
+
+\paragraph*{isNothing}\mbox{} \\
+Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de verdade do teste da condição.
+\begin{code}
+isNothing :: Maybe a -> Bool
+isNothing Nothing = True
+isNothing _ = False
+\end{code}
+
 
 \subsection*{Problema 3}
 
