@@ -1419,12 +1419,12 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{maisDir}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{c}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{c})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{c}}{}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{s2}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s2})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s2}}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{maisEsq}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\Varid{s1},\anonymous ))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s1})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s1}}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{insOrd'}\;\Varid{x}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\

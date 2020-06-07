@@ -1004,10 +1004,10 @@ dic_in = undefined
 
 \begin{code}
 maisDir = cataBTree g
-  where g = either nothing (\(a,(_,c)) -> if(isNothing c) then Just a else c)
+  where g = either nothing (\(a,(_,s2)) -> if(isNothing s2) then Just a else s2)
 
 maisEsq = cataBTree g
-  where g = undefined
+  where g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)
 
 insOrd' x = cataBTree g 
   where g = undefined
