@@ -1015,9 +1015,17 @@ insOrd' x = cataBTree g
 insOrd a x = undefined
 
 isOrd' = cataBTree g
-  where g = undefined 
+  where g = either (split (const True) (const Empty)) (\(x,((c,d),(e,f))) -> teste x d f) 
 
 isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
+
+
+teste ::(Ord a) => a -> BTree a -> BTree a -> (Bool,BTree a)
+teste a Empty Empty = (True,Node (a,(Empty,Empty)))
+teste a Empty (Node (c,d)) = (a <= c, Node (a,(Empty,(Node (c,d)))))
+teste a (Node (c,d)) Empty = (a >= c, Node (a,(((Node (c,d))),Empty)))
+teste a (Node (c,d)) (Node (x,y)) = (a >= c && a <= x,Node (a,(((Node (c,d))),((Node (x,y))))))
+
 
 rrot = undefined
 
