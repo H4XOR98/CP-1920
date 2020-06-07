@@ -1513,13 +1513,13 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{teste}\mathbin{::}(\Conid{Ord}\;\Varid{a})\Rightarrow \Varid{a}\to (\Conid{Bool},\fun{BTree} \;\Varid{a})\to (\Conid{Bool},\fun{BTree} \;\Varid{a})\to (\Conid{Bool},\fun{BTree} \;\Varid{a}){}\<[E]%
 \\
-\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Varid{b2},\Conid{Node}\;(\Varid{a},(\Conid{Empty},\Conid{Empty}))){}\<[E]%
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Conid{True}\mathrel{\wedge}\Varid{b2}\equiv \Conid{True},\Conid{Node}\;(\Varid{a},(\Conid{Empty},\Conid{Empty}))){}\<[E]%
 \\
-\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},(\Conid{Node}\;(\Varid{c},\Varid{d})))\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\leq \Varid{c},\Conid{Node}\;(\Varid{a},(\Conid{Empty},(\Conid{Node}\;(\Varid{c},\Varid{d}))))){}\<[E]%
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},\Conid{Empty})\;(\Varid{b2},(\Conid{Node}\;(\Varid{c},\Varid{d})))\mathrel{=}(\Varid{b1}\equiv \Conid{True}\mathrel{\wedge}\Varid{b2}\equiv \Conid{True}\mathrel{\wedge}\Varid{a}\leq \Varid{c},\Conid{Node}\;(\Varid{a},(\Conid{Empty},(\Conid{Node}\;(\Varid{c},\Varid{d}))))){}\<[E]%
 \\
-\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\geq \Varid{c},\Conid{Node}\;(\Varid{a},(((\Conid{Node}\;(\Varid{c},\Varid{d}))),\Conid{Empty}))){}\<[E]%
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},\Conid{Empty})\mathrel{=}(\Varid{b1}\equiv \Conid{True}\mathrel{\wedge}\Varid{b2}\equiv \Conid{True}\mathrel{\wedge}\Varid{a}\geq \Varid{c},\Conid{Node}\;(\Varid{a},(((\Conid{Node}\;(\Varid{c},\Varid{d}))),\Conid{Empty}))){}\<[E]%
 \\
-\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},(\Conid{Node}\;(\Varid{x},\Varid{y})))\mathrel{=}(\Varid{b1}\equiv \Varid{b2}\mathrel{\wedge}\Varid{a}\geq \Varid{c}\mathrel{\wedge}\Varid{a}\leq \Varid{x},{}\<[E]%
+\>[B]{}\Varid{teste}\;\Varid{a}\;(\Varid{b1},(\Conid{Node}\;(\Varid{c},\Varid{d})))\;(\Varid{b2},(\Conid{Node}\;(\Varid{x},\Varid{y})))\mathrel{=}(\Varid{b1}\equiv \Conid{True}\mathrel{\wedge}\Varid{b2}\equiv \Conid{True}\mathrel{\wedge}\Varid{a}\geq \Varid{c}\mathrel{\wedge}\Varid{a}\leq \Varid{x},{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Conid{Node}\;(\Varid{a},(((\Conid{Node}\;(\Varid{c},\Varid{d}))),((\Conid{Node}\;(\Varid{x},\Varid{y})))))){}\<[E]%
