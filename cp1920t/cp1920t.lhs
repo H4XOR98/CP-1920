@@ -1016,15 +1016,14 @@ maisEsq = cataBTree g
 insOrd' x = cataBTree g 
   where g = split (either h1 h2) (either k1 k2)
         h1 () = Node (x,(Empty,Empty))
-        h2 (a,((esqIns,esq),(dirIns,dir))) | x < a = Node (a,(esqIns,dir)) 
-                                           | otherwise = Node (a,(esq,dirIns))
+        h2 (a,((esqIns,esq),(dirIns,dir))) = curry Node a $ if (x < a) then (esqIns,dir) else (esq,dirIns)
         k1 () = Empty
         k2 (a,((esqIns,esq),(dirIns,dir))) = Node (a,(esq,dir))
 
 insOrd a x = p1 . (insOrd' a) $ x
 
 isOrd' = cataBTree g
-  where g = either (split (const True) (const Empty)) (\(a,(esq,dir)) -> teste a esq dir) 
+  where g = undefined
 
 isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
 
