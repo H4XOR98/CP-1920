@@ -1419,6 +1419,8 @@ outras funções auxiliares que sejam necessárias.
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{14}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{19}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{32}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{maisDir}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
@@ -1433,9 +1435,18 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{insOrd'}\;\Varid{x}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\conj{\Varid{id}}{\Varid{id}}\comp \underline{\Conid{Empty}}}{\lambda (\Varid{a},((\Varid{esqI},\Varid{esq}),(\Varid{dirI},\Varid{dir})))\to (\Conid{Node}\;(\Varid{a},(\Varid{esqI},\Varid{dirI})),\Conid{Node}\;(\Varid{a},(\Varid{esq},\Varid{dir})))}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{insOrd}\;\Varid{a}\;\Varid{x}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{insOrd}\;\Varid{a}\;\Conid{Empty}\mathrel{=}{}\<[19]%
+\>[19]{}\Conid{Node}\;(\Varid{a},(\Conid{Empty},\Conid{Empty})){}\<[E]%
+\\
+\>[B]{}\Varid{insOrd}\;\Varid{a}\;(\Conid{Node}\;(\Varid{x},(\Varid{esq},\Varid{dir})))\mid \Varid{a}\mathbin{<}\Varid{x}\mathrel{=}\Conid{Node}\;(\Varid{x},(\Varid{insOrd}\;\Varid{a}\;\Varid{esq},\Varid{dir})){}\<[E]%
+\\
+\>[B]{}\hsindent{32}{}\<[32]%
+\>[32]{}\mid \Varid{a}\mathbin{>}\Varid{x}\mathrel{=}\Conid{Node}\;(\Varid{x},(\Varid{esq},\Varid{insOrd}\;\Varid{a}\;\Varid{dir})){}\<[E]%
+\\
+\>[B]{}\hsindent{32}{}\<[32]%
+\>[32]{}\mid \Varid{otherwise}\mathrel{=}\Conid{Node}\;(\Varid{a},(\Varid{esq},\Varid{dir})){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{isOrd'}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
 \\

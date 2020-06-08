@@ -1014,9 +1014,12 @@ maisEsq = cataBTree g
   where g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)
 
 insOrd' x = cataBTree g 
-  where g = undefined
+  where g = either ((split id id) . (const Empty)) (\(a,((esqI,esq),(dirI,dir))) -> (Node(a,(esqI,dirI)),Node(a,(esq,dir))))
 
-insOrd a x = undefined
+insOrd a Empty =  Node(a, (Empty, Empty)) 
+insOrd a (Node(x, (esq, dir))) | a < x = Node(x, (insOrd a esq,dir))
+                               | a > x = Node(x, (esq,insOrd a dir))
+                               | otherwise = Node(a, (esq, dir)) 
 
 isOrd' = cataBTree g
   where g = either (split (const True) (const Empty)) (\(a,(esq,dir)) -> teste a esq dir) 
