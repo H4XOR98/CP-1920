@@ -1084,15 +1084,6 @@ isNothing Nothing = True
 isNothing _ = False
 \end{code}
 
-\begin{code}
-teste ::(Ord a) => a -> (Bool,BTree a) -> (Bool,BTree a) -> (Bool,BTree a)
-teste a (b1,Empty) (b2,Empty) = (b1 == True && b2 == True,Node (a,(Empty,Empty)))
-teste a (b1,Empty) (b2,(Node (c,d))) = (b1 == True && b2 == True && a <= c, Node (a,(Empty,(Node (c,d)))))
-teste a (b1,(Node (c,d))) (b2,Empty) = (b1 == True && b2 == True && a >= c, Node (a,(((Node (c,d))),Empty)))
-teste a (b1,(Node (c,d))) (b2,(Node (x,y))) = (b1 == True && b2 == True && a >= c && a <= x,
-  Node (a,(((Node (c,d))),((Node (x,y))))))
-\end{code}
-
 \subsection*{Problema 3}
 
 \begin{code}
