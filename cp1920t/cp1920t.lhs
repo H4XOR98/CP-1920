@@ -1100,8 +1100,8 @@ extLTree = cataBdt g
 
 inBdt = either Dec Query
 
-outBdt (Dec a) = Left a
-outBdt (Query (a,(t1,t2))) = Right(a,(t1,t2)) 
+outBdt (Dec a) = i1 a
+outBdt (Query (a,(t1,t2))) = i2(a,(t1,t2)) 
 
 baseBdt f g h  = f -|- (g  >< (h >< h))
 
