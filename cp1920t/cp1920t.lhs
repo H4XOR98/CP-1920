@@ -1098,16 +1098,18 @@ extLTree :: Bdt a -> LTree a
 extLTree = cataBdt g where
   g = undefined
 
-inBdt = undefined
+inBdt = either Dec Query
 
-outBdt = undefined
+outBdt (Dec a) = Left a
+outBdt (Query (a,(t1,t2))) = Right(a,(t1,t2)) 
 
-baseBdt = undefined
-recBdt = undefined
+baseBdt f g h  = f -|- (g  >< (h >< h))
 
-cataBdt = undefined
+recBdt f = baseBdt id id f
 
-anaBdt = undefined
+cataBdt a = a . (recBdt (cataBdt a)) . outBdt
+
+anaBdt f = inBdt . (recBdt (anaBdt f)) . f
 
 navLTree :: LTree a -> ([Bool] -> LTree a)
 navLTree = cataLTree g 
