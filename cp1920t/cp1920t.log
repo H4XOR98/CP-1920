@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.6)  8 JUN 2020 16:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.6)  9 JUN 2020 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,107 +826,137 @@ Underfull \hbox (badness 10000) in paragraph at lines 1397--1398
 \openout5 = `cp1920t.ptb'.
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][] 
  []
 
 
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
- [][] 
- []
-
-
-Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1467
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
  [][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1471--1472
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Overfull \hbox (22.57544pt too wide) in paragraph at lines 1418--1485
+ [][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1489--1490
 
  []
 
 <xymatrix 2x2 194>
-Overfull \hbox (61.2993pt too wide) in alignment at lines 1473--1487
+Overfull \hbox (61.2993pt too wide) in alignment at lines 1491--1505
  [][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1490--1491
+Underfull \hbox (badness 10000) in paragraph at lines 1508--1509
 
  []
 
 <xymatrix 2x2 194>
-Overfull \hbox (62.37839pt too wide) in alignment at lines 1492--1506
+Overfull \hbox (62.37839pt too wide) in alignment at lines 1510--1524
  [][][] []
  []
 
@@ -944,11 +974,11 @@ Overfull \hbox (62.37839pt too wide) in alignment at lines 1492--1506
 
 ])
 No file cp1920t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1625.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1625.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1643.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1643.
 (./cp1920t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1625.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1625.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1643.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1643.
 
 Package rerunfilecheck Info: File `cp1920t.out' has not changed.
 (rerunfilecheck)             Checksum: 628570B73880F7F6B343CF9F839CDB98;365.
@@ -956,7 +986,7 @@ Package rerunfilecheck Info: File `cp1920t.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1625.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1643.
  ) 
 Here is how much of TeX's memory you used:
  13387 strings out of 480608
@@ -990,7 +1020,7 @@ w/palatino/uplr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palat
 ino/uplri8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xypic/xy
 atip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip1
 0.pfb>
-Output written on cp1920t.pdf (16 pages, 620820 bytes).
+Output written on cp1920t.pdf (16 pages, 621585 bytes).
 PDF statistics:
  392 PDF objects out of 1000 (max. 8388607)
  333 compressed objects within 4 object streams

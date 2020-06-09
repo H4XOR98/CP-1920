@@ -1457,9 +1457,27 @@ outras funções auxiliares que sejam necessárias.
 \\[\blanklineskip]%
 \>[B]{}\Varid{isOrd}\mathrel{=}(\lambda \Varid{l}\to \Varid{and}\mathbin{\$}\Varid{zipWith}\;(\leq )\;\Varid{l}\;(\Varid{tail}\;\Varid{l}))\comp \Varid{inordt}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{rrot}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{rrot}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\underline{\Conid{Empty}}}{\Varid{h}}{}\<[E]%
+\\
+\>[3]{}\hsindent{6}{}\<[9]%
+\>[9]{}\Varid{h}\;(\Varid{r},(\Conid{Empty},\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{r},(\Conid{Empty},\Varid{d})){}\<[E]%
+\\
+\>[3]{}\hsindent{6}{}\<[9]%
+\>[9]{}\Varid{h}\;(\Varid{r},((\Conid{Node}\;(\Varid{e},(\Varid{ee},\Varid{ed}))),\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{e},(\Varid{ee},(\Conid{Node}\;(\Varid{r},(\Varid{ed},\Varid{d}))))){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{lrot}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{lrot}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\underline{\Conid{Empty}}}{\Varid{h}}{}\<[E]%
+\\
+\>[3]{}\hsindent{6}{}\<[9]%
+\>[9]{}\Varid{h}\;(\Varid{r},(\Varid{e},\Conid{Empty}))\mathrel{=}\Conid{Node}\;(\Varid{r},(\Varid{e},\Conid{Empty})){}\<[E]%
+\\
+\>[3]{}\hsindent{6}{}\<[9]%
+\>[9]{}\Varid{h}\;(\Varid{r},(\Varid{e},(\Conid{Node}\;(\Varid{d},(\Varid{de},\Varid{dd})))))\mathrel{=}\Conid{Node}\;(\Varid{d},((\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{de}))),\Varid{dd})){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{splay}\;\Varid{l}\;\Varid{t}\mathrel{=}{}\<[14]%
 \>[14]{}\bot {}\<[E]%

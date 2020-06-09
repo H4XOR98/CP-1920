@@ -1038,7 +1038,7 @@ lrot = cataBTree g
         h (r,(e,(Node(d,(de,dd))))) = Node(d,((Node(r,(e,de))),dd))
 
 
-splay l t =  undefined
+splay l t = undefined
   
 \end{code}
 
