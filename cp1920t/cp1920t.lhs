@@ -1095,8 +1095,8 @@ isNothing _ = False
 
 \begin{code}
 extLTree :: Bdt a -> LTree a
-extLTree = cataBdt g where
-  g = undefined
+extLTree = cataBdt g 
+  where g = undefined
 
 inBdt = either Dec Query
 
@@ -1115,6 +1115,10 @@ navLTree :: LTree a -> ([Bool] -> LTree a)
 navLTree = cataLTree g 
   where g = undefined
 \end{code}
+
+\subsubsection*{Diagramas}
+
+\paragraph*{anaBdt}\mbox{} \\
 
 
 \subsection*{Problema 4}
