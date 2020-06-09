@@ -1029,10 +1029,14 @@ isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
 
 rrot = cataBTree g
   where g = either (const Empty) h
-        h (a,(Empty,d)) = Node(a,(Empty,d))
-        h (a,((Node(a1,(e1,d1))),d)) = Node(a1,(e1,(Node(a,(d1,d)))))
+        h (r,(Empty,d)) = Node(r,(Empty,d))
+        h (r,((Node(e,(ee,ed))),d)) = Node(e,(ee,(Node(r,(ed,d)))))
 
-lrot = undefined
+lrot = cataBTree g
+  where g = either (const Empty) h
+        h (r,(e,Empty)) = Node(r,(e,Empty))
+        h (r,(e,(Node(d,(de,dd))))) = Node(d,((Node(r,(e,de))),dd))
+
 
 splay l t =  undefined
   
