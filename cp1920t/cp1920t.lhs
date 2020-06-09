@@ -1096,7 +1096,7 @@ isNothing _ = False
 \begin{code}
 extLTree :: Bdt a -> LTree a
 extLTree = cataBdt g 
-  where g = undefined
+  where g = either Leaf (Fork . p2)
 
 inBdt = either Dec Query
 
