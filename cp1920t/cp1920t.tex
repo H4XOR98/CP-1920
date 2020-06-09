@@ -1549,7 +1549,7 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[B]{}\Varid{extLTree}\mathrel{=}\Varid{cataBdt}\;\Varid{g}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Conid{Leaf}}{\Conid{Fork}\comp \p2}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{inBdt}\mathrel{=}\alt{\Conid{Dec}}{\Conid{Query}}{}\<[E]%
 \\[\blanklineskip]%
@@ -1580,6 +1580,9 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 
 \paragraph*{anaBdt}\mbox{} \\
 
+\paragraph*{extLTree}\mbox{} \\
+
+\paragraph*{navLTree}\mbox{} \\
 
 \subsection*{Problema 4}
 

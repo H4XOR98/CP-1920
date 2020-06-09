@@ -1120,6 +1120,9 @@ navLTree = cataLTree g
 
 \paragraph*{anaBdt}\mbox{} \\
 
+\paragraph*{extLTree}\mbox{} \\
+
+\paragraph*{navLTree}\mbox{} \\
 
 \subsection*{Problema 4}
 
