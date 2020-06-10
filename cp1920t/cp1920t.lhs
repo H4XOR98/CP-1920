@@ -975,9 +975,11 @@ dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
 tar = cataExp g where
-  g = undefined--either (singl.split nil id) 
+  g = undefined
 
-dic_rd = undefined
+dic_rd p t = h $ (concat . map p2 . filter ((p==).p1) . dic_exp) t
+  where h [] = Nothing
+        h l =  Just l 
 
 dic_in = undefined
 
@@ -1080,6 +1082,28 @@ splay l t = undefined
            \ar[l]^-{|g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)|}
 }
 \end{eqnarray*}
+
+\paragraph*{insOrd}\mbox{} \\ 
+ 
+\begin{eqnarray*}
+\xymatrix@@C=5cm{
+    |BTree A|
+           \ar[d]_-{|insOrd'|}
+           \ar[r]_-{|outBTree|}
+&
+    |1 + (A >< (BTree A >< BTree A))|
+           \ar[d]^-{|id + (id >< (insOrd' >< insOrd'))|}
+\\
+     |(BTree A >< BTree A)|
+     \ar[d]_-{|p1|}
+&
+     |1 + (A >< ((BTree A >< BTree A) >< (BTree A >< BTree A)))|
+           \ar[l]^-{|split (either h1 h2) (either k1 k2)|}
+\\
+    |BTree A|
+}
+\end{eqnarray*}
+
 
 \subsubsection*{Funções Auxiliares}
 

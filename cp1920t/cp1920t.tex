@@ -1372,6 +1372,8 @@ outras funções auxiliares que sejam necessárias.
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{discollect}\mathbin{::}(\Conid{Ord}\;\Varid{b},\Conid{Ord}\;\Varid{a})\Rightarrow [\mskip1.5mu (\Varid{b},[\mskip1.5mu \Varid{a}\mskip1.5mu])\mskip1.5mu]\to [\mskip1.5mu (\Varid{b},\Varid{a})\mskip1.5mu]{}\<[E]%
 \\
@@ -1384,9 +1386,16 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{tar}\mathrel{=}\Varid{cataExp}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\bot \mbox{\onelinecomment either (singl.split nil id) }{}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{dic\char95 rd}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{dic\char95 rd}\;\Varid{p}\;\Varid{t}\mathrel{=}\Varid{h}\mathbin{\$}(\Varid{concat}\comp \map \;\p2\comp \Varid{filter}\;((\Varid{p}\equiv )\comp \p1)\comp \Varid{dic\char95 exp})\;\Varid{t}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}\;\Varid{h}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Conid{Nothing}{}\<[E]%
+\\
+\>[3]{}\hsindent{6}{}\<[9]%
+\>[9]{}\Varid{h}\;\Varid{l}\mathrel{=}{}\<[16]%
+\>[16]{}\Conid{Just}\;\Varid{l}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{dic\char95 in}\mathrel{=}\bot {}\<[E]%
 \ColumnHook
@@ -1520,6 +1529,28 @@ outras funções auxiliares que sejam necessárias.
            \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\Varid{s1},\anonymous ))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s1})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s1}}}}
 }
 \end{eqnarray*}
+
+\paragraph*{insOrd}\mbox{} \\ 
+ 
+\begin{eqnarray*}
+\xymatrix@C=5cm{
+    \ensuremath{\fun{BTree} \;\Conid{A}}
+           \ar[d]_-{\ensuremath{\Varid{insOrd'}}}
+           \ar[r]_-{\ensuremath{\Varid{outBTree}}}
+&
+    \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\times(\Varid{insOrd'}\times\Varid{insOrd'}))}}
+\\
+     \ensuremath{(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})}
+     \ar[d]_-{\ensuremath{\p1}}
+&
+     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times((\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})))}
+           \ar[l]^-{\ensuremath{\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}}}
+\\
+    \ensuremath{\fun{BTree} \;\Conid{A}}
+}
+\end{eqnarray*}
+
 
 \subsubsection*{Funções Auxiliares}
 
