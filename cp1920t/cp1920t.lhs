@@ -88,6 +88,8 @@
 %format power2 = "^2"
 %format (cataExp (g)) = "\cata{" g "}"
 %format (cataBTree (g)) = "\cata{" g "}"
+%format (cataBdt (g)) = "\cata{" g "}"
+%format (anaBdt (g)) = "\ana{" g "}"
 %format list = "^*"
 
 %---------------------------------------------------------------------------
@@ -1210,6 +1212,23 @@ navLTree = cataLTree g where
 \paragraph*{anaBdt}\mbox{} \\
 
 \paragraph*{extLTree}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=4cm{
+    |Bdt A|
+        \ar[d]^-{|extLTree = cataBdt g|}
+        \ar[r]^-{outBdt}
+&
+    |A + B >< (Bdt A >< Bdt A)|
+        \ar[d]^-{|id + id >< (extLTree >< extLTree)|}
+\\
+    |LTree A|
+&
+    |A + B >< (LTree A >< LTree A)|
+        \ar[l]^-{|g= either Leaf (Fork . p2)|}
+}
+\end{eqnarray*}
+
 
 \paragraph*{navLTree}\mbox{} \\
 

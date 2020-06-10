@@ -755,8 +755,8 @@ Note que o tipo de dados \ensuremath{\Conid{Bdt}} é parametrizado por um tipo d
 De forma a conseguirmos processar árvores de decisão binárias em \Haskell,
 deve, antes de tudo, resolver as seguintes alíneas:
 \begin{enumerate}
-  \item Definir as funções \ensuremath{\Varid{inBdt}}, \ensuremath{\Varid{outBdt}}, \ensuremath{\Varid{baseBdt}}, \ensuremath{\Varid{cataBdt}}, e \ensuremath{\Varid{anaBdt}}.
-  \item Apresentar no relatório o diagrama de \ensuremath{\Varid{anaBdt}}.
+  \item Definir as funções \ensuremath{\Varid{inBdt}}, \ensuremath{\Varid{outBdt}}, \ensuremath{\Varid{baseBdt}}, \ensuremath{\cata{\cdot }}, e \ensuremath{\ana{\cdot }}.
+  \item Apresentar no relatório o diagrama de \ensuremath{\ana{\cdot }}.
 \end{enumerate}
 Para tomar uma decisão com base numa árvore de decisão binária \ensuremath{\Varid{t}}, o
 computador precisa apenas da estrutura de \ensuremath{\Varid{t}} (\emph{i.e.} pode esquecer
@@ -1180,7 +1180,7 @@ Funções usadas para efeitos de teste:
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{tipsBdt}\mathbin{::}\Conid{Bdt}\;\Varid{a}\to [\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[E]%
 \\
-\>[B]{}\Varid{tipsBdt}\mathrel{=}\Varid{cataBdt}\;\alt{\Varid{singl}}{\uncurry{(\plus )}\comp \p2}{}\<[E]%
+\>[B]{}\Varid{tipsBdt}\mathrel{=}\cata{\alt{\Varid{singl}}{\uncurry{(\plus )}\comp \p2}}{}\<[E]%
 \\
 \>[B]{}\Varid{tipsLTree}\mathrel{=}\Varid{tips}{}\<[E]%
 \ColumnHook
@@ -1640,7 +1640,7 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{extLTree}\mathbin{::}\Conid{Bdt}\;\Varid{a}\to \mathsf{LTree}\;\Varid{a}{}\<[E]%
 \\
-\>[B]{}\Varid{extLTree}\mathrel{=}\Varid{cataBdt}\;\Varid{g}\;\mathbf{where}{}\<[E]%
+\>[B]{}\Varid{extLTree}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{g}\mathrel{=}\alt{\Conid{Leaf}}{\Conid{Fork}\comp \p2}{}\<[E]%
@@ -1657,9 +1657,9 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \\[\blanklineskip]%
 \>[B]{}\Varid{recBdt}\;\Varid{f}\mathrel{=}\Varid{baseBdt}\;\Varid{id}\;\Varid{id}\;\Varid{f}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{cataBdt}\;\Varid{a}\mathrel{=}\Varid{a}\comp (\Varid{recBdt}\;(\Varid{cataBdt}\;\Varid{a}))\comp \Varid{outBdt}{}\<[E]%
+\>[B]{}\cata{\Varid{a}}\mathrel{=}\Varid{a}\comp (\Varid{recBdt}\;\cata{\Varid{a}})\comp \Varid{outBdt}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{anaBdt}\;\Varid{f}\mathrel{=}\Varid{inBdt}\comp (\Varid{recBdt}\;(\Varid{anaBdt}\;\Varid{f}))\comp \Varid{f}{}\<[E]%
+\>[B]{}\ana{\Varid{f}}\mathrel{=}\Varid{inBdt}\comp (\Varid{recBdt}\;\ana{\Varid{f}})\comp \Varid{f}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{navLTree}\mathbin{::}\mathsf{LTree}\;\Varid{a}\to ([\mskip1.5mu \Conid{Bool}\mskip1.5mu]\to \mathsf{LTree}\;\Varid{a}){}\<[E]%
 \\
@@ -1675,6 +1675,23 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \paragraph*{anaBdt}\mbox{} \\
 
 \paragraph*{extLTree}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=4cm{
+    \ensuremath{\Conid{Bdt}\;\Conid{A}}
+        \ar[d]^-{\ensuremath{\Varid{extLTree}\mathrel{=}\cata{\Varid{g}}}}
+        \ar[r]^-{outBdt}
+&
+    \ensuremath{\Conid{A}\mathbin{+}\mathit B\times(\Conid{Bdt}\;\Conid{A}\times\Conid{Bdt}\;\Conid{A})}
+        \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\Varid{extLTree}\times\Varid{extLTree})}}
+\\
+    \ensuremath{\mathsf{LTree}\;\Conid{A}}
+&
+    \ensuremath{\Conid{A}\mathbin{+}\mathit B\times(\mathsf{LTree}\;\Conid{A}\times\mathsf{LTree}\;\Conid{A})}
+        \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Conid{Leaf}}{\Conid{Fork}\comp \p2}}}
+}
+\end{eqnarray*}
+
 
 \paragraph*{navLTree}\mbox{} \\
 
