@@ -979,7 +979,8 @@ dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
 tar = cataExp g where
-  g = either (singleton . split nil id) g2
+  g = either g1 g2
+  g1 = singleton . split nil id
   g2 = uncurry zip . split ((map (uncurry (++))) . discollect . singleton . split p1 ((map p1) . p2)) ((map p2) . p2) . (id >< concat)
 
 dic_rd p t = h $ (concat . map p2 . filter ((p==).p1) . dic_exp) t where 
@@ -1049,14 +1050,14 @@ dic_in = undefined
 \subsection*{Problema 2}
 
 \begin{code}
-maisDir = cataBTree g
-  where g = either nothing (\(a,(_,s2)) -> if(isNothing s2) then Just a else s2)
+maisDir = cataBTree g where 
+  g = either nothing (\(a,(_,s2)) -> if(isNothing s2) then Just a else s2)
 
-maisEsq = cataBTree g
-  where g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)
+maisEsq = cataBTree g where 
+  g = either nothing (\(a,(s1,_)) -> if(isNothing s1) then Just a else s1)
 
-insOrd' x = cataBTree g 
-  where g = split (either h1 h2) (either k1 k2)
+insOrd' x = cataBTree g where 
+  g = split (either h1 h2) (either k1 k2)
         h1 () = Node (x,(Empty,Empty))
         h2 (a,((esqIns,esq),(dirIns,dir))) = curry Node a $ if (x < a) then (esqIns,dir) else (esq,dirIns)
         k1 () = Empty
@@ -1064,20 +1065,20 @@ insOrd' x = cataBTree g
 
 insOrd a x = p1 . (insOrd' a) $ x
 
-isOrd' = cataBTree g
-  where g = undefined
+isOrd' = cataBTree g where 
+  g = undefined
 
 isOrd = (\l -> and $ zipWith (<=) l (tail l)) . inordt
 
-rrot = cataBTree g
-  where g = either (const Empty) h
-        h (r,(Empty,d)) = Node(r,(Empty,d))
-        h (r,((Node(e,(ee,ed))),d)) = Node(e,(ee,(Node(r,(ed,d)))))
+rrot = cataBTree g where 
+  g = either (const Empty) h
+  h (r,(Empty,d)) = Node(r,(Empty,d))
+  h (r,((Node(e,(ee,ed))),d)) = Node(e,(ee,(Node(r,(ed,d)))))
 
-lrot = cataBTree g
-  where g = either (const Empty) h
-        h (r,(e,Empty)) = Node(r,(e,Empty))
-        h (r,(e,(Node(d,(de,dd))))) = Node(d,((Node(r,(e,de))),dd))
+lrot = cataBTree g where 
+  g = either (const Empty) h
+  h (r,(e,Empty)) = Node(r,(e,Empty))
+  h (r,(e,(Node(d,(de,dd))))) = Node(d,((Node(r,(e,de))),dd))
 
 
 splay l t = undefined
@@ -1159,8 +1160,8 @@ isNothing _ = False
 
 \begin{code}
 extLTree :: Bdt a -> LTree a
-extLTree = cataBdt g 
-  where g = either Leaf (Fork . p2)
+extLTree = cataBdt g where 
+  g = either Leaf (Fork . p2)
 
 inBdt = either Dec Query
 
@@ -1176,8 +1177,8 @@ cataBdt a = a . (recBdt (cataBdt a)) . outBdt
 anaBdt f = inBdt . (recBdt (anaBdt f)) . f
 
 navLTree :: LTree a -> ([Bool] -> LTree a)
-navLTree = cataLTree g 
-  where g = undefined
+navLTree = cataLTree g where 
+  g = undefined
 \end{code}
 
 \subsubsection*{Diagramas}
