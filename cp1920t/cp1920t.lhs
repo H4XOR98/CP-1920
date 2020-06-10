@@ -86,6 +86,7 @@
 %format cdots = "\cdots "
 %format pi = "\pi "
 %format power2 = "^2"
+%format (cataExp (g)) = "\cata{" g "}"
 %format (cataBTree (g)) = "\cata{" g "}"
 %format list = "^*"
 
