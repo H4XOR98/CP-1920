@@ -1430,28 +1430,28 @@ outras funções auxiliares que sejam necessárias.
 \paragraph*{g2}\mbox{} \\
 
 \begin{eqnarray*}
-\xymatrix@C=4cm{
+\xymatrix@C=4cm@R=3cm{
 & 
       \ensuremath{\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*} 
           \ar[d]^-{\ensuremath{\Varid{id}\times\Varid{concat}}} 
 &  
 \\
       \ensuremath{\Conid{O}\times\Conid{O}\;^*} 
-          \ar[d]^-{b} 
+          \ar[d]^-{\ensuremath{\Varid{b}\mathrel{=}\Varid{discollect}\comp \Varid{singleton}}} 
 & 
       \ensuremath{\Conid{O}\times(\Conid{O}\times\Conid{V})\;^*} 
-          \ar[l]^-{a} 
-          \ar[r]^-{e} 
-          \ar[d]^-{f} 
-          \ar[ddl]^-{d}  
+          \ar[l]^-{\ensuremath{\Varid{a}\mathrel{=}\conj{\p1}{(\map \;\p1)\comp \p2}}} 
+          \ar[r]^-{\ensuremath{\Varid{e}\mathrel{=}(\map \;\p2)\comp \p2}} 
+          \ar[d]^-{\ensuremath{\Varid{f}\mathrel{=}\conj{\Varid{d}}{\Varid{e}}}} 
+          \ar[ddl]^-{\ensuremath{\Varid{d}\mathrel{=}\Varid{c}\comp \Varid{b}\comp \Varid{a}}}  
 & 
       \ensuremath{\Conid{V}\;^*} 
 \\
       \ensuremath{(\Conid{O}\times\Conid{O})\;^*} 
-          \ar[d]^-{c} 
+          \ar[d]^-{\ensuremath{\Varid{c}\mathrel{=}\map \;\uncurry{(\plus )}}} 
 & 
       \ensuremath{\Conid{O}\;^*\times\Conid{V}\;^*}
-          \ar[d]^-{s} 
+          \ar[d]^-{\ensuremath{\Varid{h}\mathrel{=}\uncurry{\Varid{zip}}}} 
 &  
 \\
       \ensuremath{\Conid{O}\;^*}  

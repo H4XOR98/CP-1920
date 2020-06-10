@@ -1017,28 +1017,28 @@ dic_in = undefined
 \paragraph*{g2}\mbox{} \\
 
 \begin{eqnarray*}
-\xymatrix@@C=4cm{
+\xymatrix@@C=4cm@@R=3cm{
 & 
       |O >< (( O >< V )list)list| 
           \ar[d]^-{|id >< concat|} 
 &  
 \\
       |O >< O list| 
-          \ar[d]^-{b} 
+          \ar[d]^-{|b = discollect . singleton|} 
 & 
       |O >< (O >< V)list| 
-          \ar[l]^-{a} 
-          \ar[r]^-{e} 
-          \ar[d]^-{f} 
-          \ar[ddl]^-{d}  
+          \ar[l]^-{|a = split p1 ((map p1).p2)|} 
+          \ar[r]^-{|e = (map p2).p2|} 
+          \ar[d]^-{|f = split d e|} 
+          \ar[ddl]^-{|d = c . b . a|}  
 & 
       |V list| 
 \\
       |(O >< O)list| 
-          \ar[d]^-{c} 
+          \ar[d]^-{|c = map (uncurry (++))|} 
 & 
       |O list >< V list|
-          \ar[d]^-{s} 
+          \ar[d]^-{|h = uncurry zip|} 
 &  
 \\
       |O list|  
