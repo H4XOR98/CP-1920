@@ -996,9 +996,9 @@ dic_in = undefined
     |V + (O >< (Exp V O)*)|
            \ar[d]^-{|id + id >< (map tar)|}
 \\
-     |(O* >< V)*|
+     |(O >< V)*|
 &
-     |V + (O >< ((O* >< V)*)*)|
+     |V + (O >< ((O >< V)*)*)|
            \ar[l]^-{|g = either (singl.split nil id) undefined|}
 }
 \end{eqnarray*}
