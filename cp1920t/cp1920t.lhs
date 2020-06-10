@@ -85,6 +85,8 @@
 %format .&&&. = "\wedge"
 %format cdots = "\cdots "
 %format pi = "\pi "
+%format power2 = "^2"
+%format (cataBTree (g)) = "\cata{" g "}"
 
 %---------------------------------------------------------------------------
 
@@ -1088,7 +1090,7 @@ splay l t = undefined
 \begin{eqnarray*}
 \xymatrix@@C=5cm{
     |BTree A|
-           \ar[d]_-{|insOrd'|}
+           \ar[d]_-{|insOrd' = cataBTree g|}
            \ar[r]_-{|outBTree|}
 &
     |1 + (A >< (BTree A >< BTree A))|
@@ -1097,8 +1099,8 @@ splay l t = undefined
      |(BTree A >< BTree A)|
      \ar[d]_-{|p1|}
 &
-     |1 + (A >< ((BTree A >< BTree A) >< (BTree A >< BTree A)))|
-           \ar[l]^-{|split (either h1 h2) (either k1 k2)|}
+     |1 + (A >< (BTree A power2  >< BTree A power2))|
+           \ar[l]^-{|g = split (either h1 h2) (either k1 k2)|}
 \\
     |BTree A|
 }

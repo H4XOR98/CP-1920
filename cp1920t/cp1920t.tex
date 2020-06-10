@@ -1429,17 +1429,17 @@ outras funções auxiliares que sejam necessárias.
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{maisDir}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{maisDir}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{s2}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s2})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s2}}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{maisEsq}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{maisEsq}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\Varid{s1},\anonymous ))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s1})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s1}}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{insOrd'}\;\Varid{x}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{insOrd'}\;\Varid{x}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}{}\<[E]%
@@ -1458,14 +1458,14 @@ outras funções auxiliares que sejam necessárias.
 \\[\blanklineskip]%
 \>[B]{}\Varid{insOrd}\;\Varid{a}\;\Varid{x}\mathrel{=}\p1\comp (\Varid{insOrd'}\;\Varid{a})\mathbin{\$}\Varid{x}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{isOrd'}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{isOrd'}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{isOrd}\mathrel{=}(\lambda \Varid{l}\to \Varid{and}\mathbin{\$}\Varid{zipWith}\;(\leq )\;\Varid{l}\;(\Varid{tail}\;\Varid{l}))\comp \Varid{inordt}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{rrot}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{rrot}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\underline{\Conid{Empty}}}{\Varid{h}}{}\<[E]%
@@ -1476,7 +1476,7 @@ outras funções auxiliares que sejam necessárias.
 \>[3]{}\hsindent{6}{}\<[9]%
 \>[9]{}\Varid{h}\;(\Varid{r},((\Conid{Node}\;(\Varid{e},(\Varid{ee},\Varid{ed}))),\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{e},(\Varid{ee},(\Conid{Node}\;(\Varid{r},(\Varid{ed},\Varid{d}))))){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{lrot}\mathrel{=}\Varid{cataBTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\Varid{lrot}\mathrel{=}\cata{\Varid{g}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\alt{\underline{\Conid{Empty}}}{\Varid{h}}{}\<[E]%
@@ -1535,7 +1535,7 @@ outras funções auxiliares que sejam necessárias.
 \begin{eqnarray*}
 \xymatrix@C=5cm{
     \ensuremath{\fun{BTree} \;\Conid{A}}
-           \ar[d]_-{\ensuremath{\Varid{insOrd'}}}
+           \ar[d]_-{\ensuremath{\Varid{insOrd'}\mathrel{=}\cata{\Varid{g}}}}
            \ar[r]_-{\ensuremath{\Varid{outBTree}}}
 &
     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
@@ -1544,8 +1544,8 @@ outras funções auxiliares que sejam necessárias.
      \ensuremath{(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})}
      \ar[d]_-{\ensuremath{\p1}}
 &
-     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times((\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})))}
-           \ar[l]^-{\ensuremath{\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}}}
+     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\;^2\times\fun{BTree} \;\Conid{A}\;^2))}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}}}
 \\
     \ensuremath{\fun{BTree} \;\Conid{A}}
 }
