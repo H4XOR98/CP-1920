@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.6)  10 JUN 2020 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.6.6)  10 JUN 2020 18:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -951,7 +951,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1531--1532
  []
 
 <xymatrix 2x2 194>
-Overfull \hbox (61.2993pt too wide) in alignment at lines 1533--1547
+Overfull \hbox (69.97829pt too wide) in alignment at lines 1533--1547
  [][][] []
  []
 
@@ -961,7 +961,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1550--1551
  []
 
 <xymatrix 2x2 194>
-Overfull \hbox (62.37839pt too wide) in alignment at lines 1552--1566
+Overfull \hbox (74.94627pt too wide) in alignment at lines 1552--1566
  [][][] []
  []
 
@@ -1051,7 +1051,7 @@ atino/uplr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/u
 plri8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xypic/xyatip1
 0.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb
 >
-Output written on cp1920t.pdf (17 pages, 640785 bytes).
+Output written on cp1920t.pdf (17 pages, 640827 bytes).
 PDF statistics:
  411 PDF objects out of 1000 (max. 8388607)
  349 compressed objects within 4 object streams

@@ -1443,15 +1443,15 @@ outras funções auxiliares que sejam necessárias.
 \begin{eqnarray*}
 \xymatrix@C=5cm{
     \ensuremath{\Conid{Exp}\;\Conid{V}\;\Conid{O}}
-           \ar[d]_-{\ensuremath{\Varid{tar}}}
+           \ar[d]_-{\ensuremath{\Varid{tar}\mathrel{=}\cata{\Varid{g}}}}
            \ar[r]_-{\ensuremath{\Varid{outExp}}}
 &
-    \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\;^*)}
+    \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\;^*}
            \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\map \;\Varid{tar})}}
 \\
      \ensuremath{(\Conid{O}\times\Conid{V})\;^*}
 &
-     \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*)}
+     \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*}
            \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{singl}\comp \conj{\Varid{nil}}{\Varid{id}}}{\bot }}}
 }
 \end{eqnarray*}
@@ -1533,15 +1533,15 @@ outras funções auxiliares que sejam necessárias.
 \begin{eqnarray*}
 \xymatrix@C=8cm{
     \ensuremath{\fun{BTree} \;\Conid{A}}
-           \ar[d]_-{\ensuremath{\Varid{maisDir}}}
+           \ar[d]_-{\ensuremath{\Varid{maisDir}\mathrel{=}\cata{\Varid{g}}}}
            \ar[r]_-{\ensuremath{\Varid{outBTree}}}
 &
-    \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
-           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\times(\Varid{maisDir}\times\Varid{maisDir}))}}
+    \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\Varid{maisDir}\times\Varid{maisDir})}}
 \\
      \ensuremath{\Conid{Maybe}\;\Conid{A}}
 &
-     \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\Conid{Maybe}\;\Conid{A}\times\Conid{Maybe}\;\Conid{A}))}
+     \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\Conid{Maybe}\;\Conid{A}\times\Conid{Maybe}\;\Conid{A})}
            \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{nothing}}{\lambda (\Varid{a},(\anonymous ,\Varid{s2}))\to \mathbf{if}\;(\Varid{isNothing}\;\Varid{s2})\;\mathbf{then}\;\Conid{Just}\;\Varid{a}\;\mathbf{else}\;\Varid{s2}}}}
 }
 \end{eqnarray*}
@@ -1552,11 +1552,11 @@ outras funções auxiliares que sejam necessárias.
 \begin{eqnarray*}
 \xymatrix@C=8cm{
     \ensuremath{\fun{BTree} \;\Conid{A}}
-           \ar[d]_-{\ensuremath{\Varid{maisEsq}}}
+           \ar[d]_-{\ensuremath{\Varid{maisEsq}\mathrel{=}\cata{\Varid{g}}}}
            \ar[r]_-{\ensuremath{\Varid{outBTree}}}
 &
-    \ensuremath{\mathrm{1}\mathbin{+}(\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A}))}
-           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{id}\times(\Varid{maisEsq}\times\Varid{maisEsq}))}}
+    \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\Varid{maisEsq}\times\Varid{maisEsq})}}
 \\
      \ensuremath{\Conid{Maybe}\;\Conid{A}}
 &

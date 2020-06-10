@@ -1031,15 +1031,15 @@ dic_in = undefined
 \begin{eqnarray*}
 \xymatrix@@C=5cm{
     |Exp V O|
-           \ar[d]_-{|tar|}
+           \ar[d]_-{|tar = cataExp g|}
            \ar[r]_-{|outExp|}
 &
-    |V + (O >< (Exp V O)list)|
+    |V + O >< (Exp V O)list|
            \ar[d]^-{|id + id >< (map tar)|}
 \\
      |(O >< V)list|
 &
-     |V + (O >< ((O >< V)list)list)|
+     |V + O >< ((O >< V)list)list|
            \ar[l]^-{|g = either (singl.split nil id) undefined|}
 }
 \end{eqnarray*}
@@ -1090,15 +1090,15 @@ splay l t = undefined
 \begin{eqnarray*}
 \xymatrix@@C=8cm{
     |BTree A|
-           \ar[d]_-{|maisDir|}
+           \ar[d]_-{|maisDir = cataBTree g|}
            \ar[r]_-{|outBTree|}
 &
-    |1 + (A >< (BTree A >< BTree A))|
-           \ar[d]^-{|id + (id >< (maisDir >< maisDir))|}
+    |1 + A >< (BTree A >< BTree A)|
+           \ar[d]^-{|id + id >< (maisDir >< maisDir)|}
 \\
      |Maybe A|
 &
-     |1 + (A >< (Maybe A >< Maybe A))|
+     |1 + A >< (Maybe A >< Maybe A)|
            \ar[l]^-{|g = either nothing (\(a,(_,s2)) -> if(isNothing s2) then Just a else s2)|}
 }
 \end{eqnarray*}
@@ -1109,11 +1109,11 @@ splay l t = undefined
 \begin{eqnarray*}
 \xymatrix@@C=8cm{
     |BTree A|
-           \ar[d]_-{|maisEsq|}
+           \ar[d]_-{|maisEsq = cataBTree g|}
            \ar[r]_-{|outBTree|}
 &
-    |1 + (A >< (BTree A >< BTree A))|
-           \ar[d]^-{|id + (id >< (maisEsq >< maisEsq))|}
+    |1 + A >< (BTree A >< BTree A)|
+           \ar[d]^-{|id + id >< (maisEsq >< maisEsq)|}
 \\
      |Maybe A|
 &
