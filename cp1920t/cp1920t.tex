@@ -1372,8 +1372,7 @@ outras funções auxiliares que sejam necessárias.
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{16}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{10}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{discollect}\mathbin{::}(\Conid{Ord}\;\Varid{b},\Conid{Ord}\;\Varid{a})\Rightarrow [\mskip1.5mu (\Varid{b},[\mskip1.5mu \Varid{a}\mskip1.5mu])\mskip1.5mu]\to [\mskip1.5mu (\Varid{b},\Varid{a})\mskip1.5mu]{}\<[E]%
 \\
@@ -1386,16 +1385,19 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{tar}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\bot {}\<[E]%
-\\[\blanklineskip]%
-\>[B]{}\Varid{dic\char95 rd}\;\Varid{p}\;\Varid{t}\mathrel{=}\Varid{h}\mathbin{\$}(\Varid{concat}\comp \map \;\p2\comp \Varid{filter}\;((\Varid{p}\equiv )\comp \p1)\comp \Varid{dic\char95 exp})\;\Varid{t}{}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\alt{\Varid{singleton}\comp \conj{\Varid{nil}}{\Varid{id}}}{\Varid{g2}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{h}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Conid{Nothing}{}\<[E]%
+\>[3]{}\Varid{g2}\mathrel{=}\uncurry{\Varid{zip}}\comp \conj{(\map \;\uncurry{(\plus )})\comp \Varid{discollect}\comp \Varid{singleton}\comp \conj{\p1}{(\map \;\p1)\comp \p2}}{(\map \;\p2)\comp \p2}\comp (\Varid{id}\times\Varid{concat}){}\<[E]%
+\\[\blanklineskip]%
+\>[B]{}\Varid{dic\char95 rd}\;\Varid{p}\;\Varid{t}\mathrel{=}\Varid{h}\mathbin{\$}(\Varid{concat}\comp \map \;\p2\comp \Varid{filter}\;((\Varid{p}\equiv )\comp \p1)\comp \Varid{dic\char95 exp})\;\Varid{t}\;\mathbf{where}{}\<[E]%
 \\
-\>[3]{}\hsindent{6}{}\<[9]%
-\>[9]{}\Varid{h}\;\Varid{l}\mathrel{=}{}\<[16]%
-\>[16]{}\Conid{Just}\;\Varid{l}{}\<[E]%
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{h}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Conid{Nothing}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{h}\;\Varid{l}\mathrel{=}{}\<[10]%
+\>[10]{}\Conid{Just}\;\Varid{l}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{dic\char95 in}\mathrel{=}\bot {}\<[E]%
 \ColumnHook

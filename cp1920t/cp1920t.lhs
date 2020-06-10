@@ -979,11 +979,12 @@ dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
 tar = cataExp g where
-  g = undefined
+  g = either (singleton . split nil id) g2
+  g2 = uncurry zip . split ((map (uncurry (++))) . discollect . singleton . split p1 ((map p1) . p2)) ((map p2) . p2) . (id >< concat)
 
-dic_rd p t = h $ (concat . map p2 . filter ((p==).p1) . dic_exp) t
-  where h [] = Nothing
-        h l =  Just l 
+dic_rd p t = h $ (concat . map p2 . filter ((p==).p1) . dic_exp) t where 
+  h [] = Nothing
+  h l =  Just l 
 
 dic_in = undefined
 
