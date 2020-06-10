@@ -1467,7 +1467,6 @@ outras funções auxiliares que sejam necessárias.
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{maisDir}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
@@ -1482,19 +1481,19 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\Varid{insOrd'}\;\Varid{x}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}\;{}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\conj{\alt{\Varid{h1}}{\Varid{h2}}}{\alt{\Varid{k1}}{\Varid{k2}}}{}\<[E]%
 \\
-\>[3]{}\hsindent{6}{}\<[9]%
-\>[9]{}\Varid{h1}\;()\mathrel{=}\Conid{Node}\;(\Varid{x},(\Conid{Empty},\Conid{Empty})){}\<[E]%
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{h1}\;()\mathrel{=}\Conid{Node}\;(\Varid{x},(\Conid{Empty},\Conid{Empty})){}\<[E]%
 \\
-\>[3]{}\hsindent{6}{}\<[9]%
-\>[9]{}\Varid{h2}\;(\Varid{a},((\Varid{esqIns},\Varid{esq}),(\Varid{dirIns},\Varid{dir})))\mathrel{=}\Varid{curry}\;\Conid{Node}\;\Varid{a}\mathbin{\$}\mathbf{if}\;(\Varid{x}\mathbin{<}\Varid{a})\;\mathbf{then}\;(\Varid{esqIns},\Varid{dir})\;\mathbf{else}\;(\Varid{esq},\Varid{dirIns}){}\<[E]%
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{h2}\;(\Varid{a},((\Varid{esqIns},\Varid{esq}),(\Varid{dirIns},\Varid{dir})))\mathrel{=}\Varid{curry}\;\Conid{Node}\;\Varid{a}\mathbin{\$}\mathbf{if}\;(\Varid{x}\mathbin{<}\Varid{a})\;\mathbf{then}\;(\Varid{esqIns},\Varid{dir})\;\mathbf{else}\;(\Varid{esq},\Varid{dirIns}){}\<[E]%
 \\
-\>[3]{}\hsindent{6}{}\<[9]%
-\>[9]{}\Varid{k1}\;()\mathrel{=}\Conid{Empty}{}\<[E]%
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{k1}\;()\mathrel{=}\Conid{Empty}{}\<[E]%
 \\
-\>[3]{}\hsindent{6}{}\<[9]%
-\>[9]{}\Varid{k2}\;(\Varid{a},((\Varid{esqIns},\Varid{esq}),(\Varid{dirIns},\Varid{dir})))\mathrel{=}\Conid{Node}\;(\Varid{a},(\Varid{esq},\Varid{dir})){}\<[E]%
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{k2}\;(\Varid{a},((\Varid{esqIns},\Varid{esq}),(\Varid{dirIns},\Varid{dir})))\mathrel{=}\Conid{Node}\;(\Varid{a},(\Varid{esq},\Varid{dir})){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{insOrd}\;\Varid{a}\;\Varid{x}\mathrel{=}\p1\comp (\Varid{insOrd'}\;\Varid{a})\mathbin{\$}\Varid{x}{}\<[E]%
 \\[\blanklineskip]%
@@ -1514,7 +1513,7 @@ outras funções auxiliares que sejam necessárias.
 \>[3]{}\Varid{h}\;(\Varid{r},(\Conid{Empty},\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{r},(\Conid{Empty},\Varid{d})){}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{h}\;(\Varid{r},((\Conid{Node}\;(\Varid{e},(\Varid{ee},\Varid{ed}))),\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{e},(\Varid{ee},(\Conid{Node}\;(\Varid{r},(\Varid{ed},\Varid{d}))))){}\<[E]%
+\>[3]{}\Varid{h}\;(\Varid{r},(\Conid{Node}\;(\Varid{e},(\Varid{ee},\Varid{ed})),\Varid{d}))\mathrel{=}\Conid{Node}\;(\Varid{e},(\Varid{ee},(\Conid{Node}\;(\Varid{r},(\Varid{ed},\Varid{d}))))){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{lrot}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
@@ -1525,7 +1524,7 @@ outras funções auxiliares que sejam necessárias.
 \>[3]{}\Varid{h}\;(\Varid{r},(\Varid{e},\Conid{Empty}))\mathrel{=}\Conid{Node}\;(\Varid{r},(\Varid{e},\Conid{Empty})){}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{h}\;(\Varid{r},(\Varid{e},(\Conid{Node}\;(\Varid{d},(\Varid{de},\Varid{dd})))))\mathrel{=}\Conid{Node}\;(\Varid{d},((\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{de}))),\Varid{dd})){}\<[E]%
+\>[3]{}\Varid{h}\;(\Varid{r},(\Varid{e},\Conid{Node}\;(\Varid{d},(\Varid{de},\Varid{dd}))))\mathrel{=}\Conid{Node}\;(\Varid{d},((\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{de}))),\Varid{dd})){}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{splay}\;\Varid{l}\;\Varid{t}\mathrel{=}\bot {}\<[E]%
 \ColumnHook
