@@ -993,6 +993,25 @@ dic_in = undefined
 
 \subsubsection*{Diagramas}
 
+
+\paragraph*{tar}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=5cm{
+    |Exp V O|
+           \ar[d]_-{|tar = cataExp g|}
+           \ar[r]_-{|outExp|}
+&
+    |V + O >< (Exp V O)list|
+           \ar[d]^-{|id + id >< (map tar)|}
+\\
+     |(O >< V)list|
+&
+     |V + O >< ((O >< V)list)list|
+           \ar[l]^-{|g = either (singl.split nil id) g2|}
+}
+\end{eqnarray*}
+
 \paragraph*{g2}\mbox{} \\
 
 \begin{eqnarray*}
@@ -1024,25 +1043,6 @@ dic_in = undefined
 & 
       |(O >< V)list| 
 &
-}
-\end{eqnarray*}
-
-
-\paragraph*{tar}\mbox{} \\
-
-\begin{eqnarray*}
-\xymatrix@@C=5cm{
-    |Exp V O|
-           \ar[d]_-{|tar = cataExp g|}
-           \ar[r]_-{|outExp|}
-&
-    |V + O >< (Exp V O)list|
-           \ar[d]^-{|id + id >< (map tar)|}
-\\
-     |(O >< V)list|
-&
-     |V + O >< ((O >< V)list)list|
-           \ar[l]^-{|g = either (singl.split nil id) undefined|}
 }
 \end{eqnarray*}
 
@@ -1144,6 +1144,30 @@ splay l t = undefined
     |BTree A|
 }
 \end{eqnarray*}
+
+\paragraph*{isOrd}\mbox{} \\ 
+\begin{eqnarray*}
+\xymatrix@@C=4cm{
+BTree\ A 
+    \ar[r]^-{outBTree}
+    \ar[d]^-{inordt}
+&
+|1 + A >< (BTree A >< BTree A)|
+    \ar[d]^-{|id + id >< (inordt >< inordt)|}
+\\
+|A list|
+    \ar[d]^-{(\setminus l \ \to\  zipWith \ (\le)\  l \ (tail\ l))}
+&
+|1 + A >< (A list >< A list)|
+    \ar[l]^-{inord}
+\\
+|2 list|
+    \ar[d]^-{and}
+& \\
+2 &\\
+}
+\end{eqnarray*}
+
 
 
 \subsubsection*{Funções Auxiliares}

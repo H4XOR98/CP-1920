@@ -1408,6 +1408,25 @@ outras funções auxiliares que sejam necessárias.
 
 \subsubsection*{Diagramas}
 
+
+\paragraph*{tar}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=5cm{
+    \ensuremath{\Conid{Exp}\;\Conid{V}\;\Conid{O}}
+           \ar[d]_-{\ensuremath{\Varid{tar}\mathrel{=}\cata{\Varid{g}}}}
+           \ar[r]_-{\ensuremath{\Varid{outExp}}}
+&
+    \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\;^*}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\map \;\Varid{tar})}}
+\\
+     \ensuremath{(\Conid{O}\times\Conid{V})\;^*}
+&
+     \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{singl}\comp \conj{\Varid{nil}}{\Varid{id}}}{\Varid{g2}}}}
+}
+\end{eqnarray*}
+
 \paragraph*{g2}\mbox{} \\
 
 \begin{eqnarray*}
@@ -1439,25 +1458,6 @@ outras funções auxiliares que sejam necessárias.
 & 
       \ensuremath{(\Conid{O}\times\Conid{V})\;^*} 
 &
-}
-\end{eqnarray*}
-
-
-\paragraph*{tar}\mbox{} \\
-
-\begin{eqnarray*}
-\xymatrix@C=5cm{
-    \ensuremath{\Conid{Exp}\;\Conid{V}\;\Conid{O}}
-           \ar[d]_-{\ensuremath{\Varid{tar}\mathrel{=}\cata{\Varid{g}}}}
-           \ar[r]_-{\ensuremath{\Varid{outExp}}}
-&
-    \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\;^*}
-           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\map \;\Varid{tar})}}
-\\
-     \ensuremath{(\Conid{O}\times\Conid{V})\;^*}
-&
-     \ensuremath{\Conid{V}\mathbin{+}\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*}
-           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{singl}\comp \conj{\Varid{nil}}{\Varid{id}}}{\bot }}}
 }
 \end{eqnarray*}
 
@@ -1590,6 +1590,30 @@ outras funções auxiliares que sejam necessárias.
     \ensuremath{\fun{BTree} \;\Conid{A}}
 }
 \end{eqnarray*}
+
+\paragraph*{isOrd}\mbox{} \\ 
+\begin{eqnarray*}
+\xymatrix@C=4cm{
+BTree\ A 
+    \ar[r]^-{outBTree}
+    \ar[d]^-{inordt}
+&
+\ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})}
+    \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\Varid{inordt}\times\Varid{inordt})}}
+\\
+\ensuremath{\Conid{A}\;^*}
+    \ar[d]^-{(\setminus l \ \to\  zipWith \ (\le)\  l \ (tail\ l))}
+&
+\ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\Conid{A}\;^*\times\Conid{A}\;^*)}
+    \ar[l]^-{inord}
+\\
+\ensuremath{\mathrm{2}\;^*}
+    \ar[d]^-{and}
+& \\
+2 &\\
+}
+\end{eqnarray*}
+
 
 
 \subsubsection*{Funções Auxiliares}
