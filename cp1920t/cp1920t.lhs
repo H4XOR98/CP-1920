@@ -87,6 +87,7 @@
 %format pi = "\pi "
 %format power2 = "^2"
 %format (cataBTree (g)) = "\cata{" g "}"
+%format list = "^*"
 
 %---------------------------------------------------------------------------
 
@@ -989,6 +990,41 @@ dic_in = undefined
 
 \subsubsection*{Diagramas}
 
+\paragraph*{g2}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=4cm{
+& 
+      |O >< (( O >< V )list)list| 
+          \ar[d]^-{|id >< concat|} 
+&  
+\\
+      |O >< O list| 
+          \ar[d]^-{b} 
+& 
+      |O >< (O >< V)list| 
+          \ar[l]^-{a} 
+          \ar[r]^-{e} 
+          \ar[d]^-{f} 
+          \ar[ddl]^-{d}  
+& 
+      |V list| 
+\\
+      |(O >< O)list| 
+          \ar[d]^-{c} 
+& 
+      |O list >< V list|
+          \ar[d]^-{s} 
+&  
+\\
+      |O list|  
+& 
+      |(O >< V)list| 
+&
+}
+\end{eqnarray*}
+
+
 \paragraph*{tar}\mbox{} \\
 
 \begin{eqnarray*}
@@ -997,12 +1033,12 @@ dic_in = undefined
            \ar[d]_-{|tar|}
            \ar[r]_-{|outExp|}
 &
-    |V + (O >< (Exp V O)*)|
+    |V + (O >< (Exp V O)list)|
            \ar[d]^-{|id + id >< (map tar)|}
 \\
-     |(O >< V)*|
+     |(O >< V)list|
 &
-     |V + (O >< ((O >< V)*)*)|
+     |V + (O >< ((O >< V)list)list)|
            \ar[l]^-{|g = either (singl.split nil id) undefined|}
 }
 \end{eqnarray*}

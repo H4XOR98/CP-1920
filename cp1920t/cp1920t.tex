@@ -1403,6 +1403,41 @@ outras funções auxiliares que sejam necessárias.
 
 \subsubsection*{Diagramas}
 
+\paragraph*{g2}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=4cm{
+& 
+      \ensuremath{\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*} 
+          \ar[d]^-{\ensuremath{\Varid{id}\times\Varid{concat}}} 
+&  
+\\
+      \ensuremath{\Conid{O}\times\Conid{O}\;^*} 
+          \ar[d]^-{b} 
+& 
+      \ensuremath{\Conid{O}\times(\Conid{O}\times\Conid{V})\;^*} 
+          \ar[l]^-{a} 
+          \ar[r]^-{e} 
+          \ar[d]^-{f} 
+          \ar[ddl]^-{d}  
+& 
+      \ensuremath{\Conid{V}\;^*} 
+\\
+      \ensuremath{(\Conid{O}\times\Conid{O})\;^*} 
+          \ar[d]^-{c} 
+& 
+      \ensuremath{\Conid{O}\;^*\times\Conid{V}\;^*}
+          \ar[d]^-{s} 
+&  
+\\
+      \ensuremath{\Conid{O}\;^*}  
+& 
+      \ensuremath{(\Conid{O}\times\Conid{V})\;^*} 
+&
+}
+\end{eqnarray*}
+
+
 \paragraph*{tar}\mbox{} \\
 
 \begin{eqnarray*}
@@ -1411,12 +1446,12 @@ outras funções auxiliares que sejam necessárias.
            \ar[d]_-{\ensuremath{\Varid{tar}}}
            \ar[r]_-{\ensuremath{\Varid{outExp}}}
 &
-    \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\mathbin{*})}
+    \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times(\Conid{Exp}\;\Conid{V}\;\Conid{O})\;^*)}
            \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\map \;\Varid{tar})}}
 \\
-     \ensuremath{(\Conid{O}\times\Conid{V})\mathbin{*}}
+     \ensuremath{(\Conid{O}\times\Conid{V})\;^*}
 &
-     \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times((\Conid{O}\times\Conid{V})\mathbin{*})\mathbin{*})}
+     \ensuremath{\Conid{V}\mathbin{+}(\Conid{O}\times((\Conid{O}\times\Conid{V})\;^*)\;^*)}
            \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{singl}\comp \conj{\Varid{nil}}{\Varid{id}}}{\bot }}}
 }
 \end{eqnarray*}
