@@ -1209,9 +1209,9 @@ anaBdt f = inBdt . (recBdt (anaBdt f)) . f
 
 navLTree :: LTree a -> ([Bool] -> LTree a)
 navLTree = cataLTree g where 
-  g = either (curry (Leaf . p1)) aux 
-  aux (esq,dir) []  = Fork (esq [] , dir [])
-  aux (esq,dir) l   = (if (head l == True) then esq else dir) $ tail l
+  g = either (curry (Leaf . p1)) aux where 
+    aux (esq,dir) []  = Fork (esq [] , dir [])
+    aux (esq,dir) l = (if (head l == True) then esq else dir) $ tail l
 
 
 \end{code}
@@ -1260,8 +1260,10 @@ navLTree = cataLTree g where
 \subsection*{Problema 4}
 
 \begin{code}
-bnavLTree = cataLTree g
-  where g = undefined
+bnavLTree = cataLTree g where
+  g = either (curry (Leaf . p1)) aux where
+    aux (esq,dir) Empty  = Fork (esq Empty , dir Empty)
+    aux (esq,dir) (Node(r,(e,d))) = if(r == True) then esq e else dir d
 
 
 pbnavLTree = cataLTree g
