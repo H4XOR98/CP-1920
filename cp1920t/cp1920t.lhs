@@ -985,7 +985,7 @@ tar = cataExp g where
   g1 = singleton . split nil id
   g2 = uncurry zip . split ((map (uncurry (++))) . discollect . singleton . split p1 ((map p1) . p2)) ((map p2) . p2) . (id >< concat)
 
-dic_rd p t = (if(result == []) then nothing else Just ) result where 
+dic_rd p t = (if(result == []) then nothing else Just) result where 
   result = (concat . map p2 . filter ((p==).p1) . dic_exp) t
 
 dic_in = undefined
