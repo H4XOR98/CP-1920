@@ -1088,8 +1088,10 @@ lrot = cataBTree g where
   h (r,(e,Node(d,(de,dd)))) = Node(d,((Node(r,(e,de))),dd))
 
 
-splay l t = undefined
-  
+splay = flip (cataBTree g) where 
+  g = either (curry (const Empty)) aux where
+    aux (r,(esq,dir)) [] = Node(r,(esq [], dir []))
+    aux (r,(esq,dir)) l = (if (head l == True) then esq else dir) $ tail l
 \end{code}
 
 \subsubsection*{Diagramas}
