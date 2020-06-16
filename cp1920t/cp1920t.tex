@@ -1372,7 +1372,7 @@ outras funções auxiliares que sejam necessárias.
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{10}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{discollect}\mathbin{::}(\Conid{Ord}\;\Varid{b},\Conid{Ord}\;\Varid{a})\Rightarrow [\mskip1.5mu (\Varid{b},[\mskip1.5mu \Varid{a}\mskip1.5mu])\mskip1.5mu]\to [\mskip1.5mu (\Varid{b},\Varid{a})\mskip1.5mu]{}\<[E]%
 \\
@@ -1382,6 +1382,8 @@ outras funções auxiliares que sejam necessárias.
 \\
 \>[B]{}\Varid{dic\char95 exp}\mathrel{=}\Varid{collect}\comp \Varid{tar}{}\<[E]%
 \\[\blanklineskip]%
+\>[B]{}\Varid{tar}\mathbin{::}\Conid{Exp}\;\Varid{c}\;\Conid{String}\to [\mskip1.5mu (\Conid{String},\Varid{c})\mskip1.5mu]{}\<[E]%
+\\
 \>[B]{}\Varid{tar}\mathrel{=}\cata{\Varid{g}}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
@@ -1393,16 +1395,22 @@ outras funções auxiliares que sejam necessárias.
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{g2}\mathrel{=}\uncurry{\Varid{zip}}\comp \conj{(\map \;\uncurry{(\plus )})\comp \Varid{discollect}\comp \Varid{singleton}\comp \conj{\p1}{(\map \;\p1)\comp \p2}}{(\map \;\p2)\comp \p2}\comp (\Varid{id}\times\Varid{concat}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{dic\char95 rd}\;\Varid{p}\;\Varid{t}\mathrel{=}\Varid{h}\mathbin{\$}(\Varid{concat}\comp \map \;\p2\comp \Varid{filter}\;((\Varid{p}\equiv )\comp \p1)\comp \Varid{dic\char95 exp})\;\Varid{t}\;\mathbf{where}{}\<[E]%
+\>[B]{}\Varid{dic\char95 rd}\mathbin{::}\Conid{String}\to \Conid{Exp}\;\Conid{String}\;\Conid{String}\to \Conid{Maybe}\;[\mskip1.5mu \Conid{String}\mskip1.5mu]{}\<[E]%
+\\
+\>[B]{}\Varid{dic\char95 rd}\;\Varid{p}\;\Varid{t}\mathrel{=}(\mathbf{if}\;(\Varid{result}\equiv [\mskip1.5mu \mskip1.5mu])\;\mathbf{then}\;\Varid{nothing}\;\mathbf{else}\;\Conid{Just})\;\Varid{result}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{h}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}\Conid{Nothing}{}\<[E]%
-\\
-\>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{h}\;\Varid{l}\mathrel{=}{}\<[10]%
-\>[10]{}\Conid{Just}\;\Varid{l}{}\<[E]%
+\>[3]{}\Varid{result}\mathrel{=}(\Varid{concat}\comp \map \;\p2\comp \Varid{filter}\;((\Varid{p}\equiv )\comp \p1)\comp \Varid{dic\char95 exp})\;\Varid{t}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{dic\char95 in}\mathrel{=}\bot {}\<[E]%
+\>[B]{}\Varid{dic\char95 in}\mathbin{::}\Conid{String}\to \Conid{String}\to \Conid{Dict}\to \Conid{Dict}{}\<[E]%
+\\
+\>[B]{}\Varid{dic\char95 in}\;\Varid{x}\;\Varid{y}\;\Varid{z}\mathrel{=}\Varid{f}\;((\Varid{x},\Varid{y}),\Varid{z}){}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\mathbf{where}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{f}\mathrel{=}\Varid{dic\char95 imp}\comp (\Varid{sortBy}\;\Varid{compare})\comp \mathsf{conc}\comp (\Varid{singl}\times\Varid{id})\comp (\conj{\p1}{\Varid{singl}\comp \p2}\times\Varid{dic\char95 exp}){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
@@ -1636,6 +1644,7 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{16}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{21}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{28}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{extLTree}\mathbin{::}\Conid{Bdt}\;\Varid{a}\to \mathsf{LTree}\;\Varid{a}{}\<[E]%
@@ -1666,13 +1675,37 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[B]{}\Varid{navLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\alt{\Varid{curry}\;(\Conid{Leaf}\comp \p1)}{\Varid{aux}}{}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;[\mskip1.5mu \mskip1.5mu]{}\<[21]%
+\>[21]{}\mathrel{=}\Conid{Fork}\;(\Varid{esq}\;[\mskip1.5mu \mskip1.5mu],\Varid{dir}\;[\mskip1.5mu \mskip1.5mu]){}\<[E]%
+\\
+\>[B]{}\hsindent{3}{}\<[3]%
+\>[3]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;\Varid{l}{}\<[21]%
+\>[21]{}\mathrel{=}(\mathbf{if}\;(\Varid{head}\;\Varid{l}\equiv \Conid{True})\;\mathbf{then}\;\Varid{esq}\;\mathbf{else}\;\Varid{dir})\mathbin{\$}\Varid{tail}\;\Varid{l}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
 \subsubsection*{Diagramas}
 
 \paragraph*{anaBdt}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@C=4cm@R=3cm{
+      \ensuremath{\Conid{Bdt}\;\Conid{A}} 
+&
+      \ensuremath{\Conid{A}\mathbin{+}\mathit B\times(\Conid{Bdt}\;\Conid{A}\times\Conid{Bdt}\;\Conid{A})} 
+          \ar[l]^-{\ensuremath{\mathbf{in}}} 
+\\
+      \ensuremath{\mathit C} 
+          \ar[u]^-{\ensuremath{\ana{\Varid{g}}}} 
+          \ar[r]^-{\ensuremath{\Varid{g}}} 
+& 
+      \ensuremath{\Conid{FC}} 
+          \ar[u]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\ana{\Varid{g}}\times\ana{\Varid{g}})}} 
+}
+\end{eqnarray*}
 
 \paragraph*{extLTree}\mbox{} \\
 

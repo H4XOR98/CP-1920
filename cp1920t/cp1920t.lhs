@@ -980,15 +980,21 @@ discollect = concat . map lstr
 dic_exp :: Dict -> [(String,[String])]
 dic_exp = collect . tar
 
+tar :: Exp c String -> [(String, c)]
 tar = cataExp g where
   g = either g1 g2
   g1 = singleton . split nil id
   g2 = uncurry zip . split ((map (uncurry (++))) . discollect . singleton . split p1 ((map p1) . p2)) ((map p2) . p2) . (id >< concat)
 
+
+dic_rd :: String -> Exp String String -> Maybe [String]
 dic_rd p t = (if(result == []) then nothing else Just) result where 
   result = (concat . map p2 . filter ((p==).p1) . dic_exp) t
 
-dic_in = undefined
+dic_in :: String -> String -> Dict -> Dict
+dic_in x y z = f ((x, y), z)
+  where
+    f = dic_imp . (sortBy compare) . conc . (singl >< id) . ((split p1 (singl . p2) ) >< dic_exp)
 
 \end{code}
 
@@ -1203,12 +1209,32 @@ anaBdt f = inBdt . (recBdt (anaBdt f)) . f
 
 navLTree :: LTree a -> ([Bool] -> LTree a)
 navLTree = cataLTree g where 
-  g = undefined
+  g = either (curry (Leaf . p1)) aux 
+  aux (esq,dir) []  = Fork (esq [] , dir [])
+  aux (esq,dir) l   = (if (head l == True) then esq else dir) $ tail l
+
+
 \end{code}
 
 \subsubsection*{Diagramas}
 
 \paragraph*{anaBdt}\mbox{} \\
+
+\begin{eqnarray*}
+\xymatrix@@C=4cm@@R=3cm{
+      |Bdt A| 
+&
+      |A + B >< (Bdt A >< Bdt A)| 
+          \ar[l]^-{|in|} 
+\\
+      |C| 
+          \ar[u]^-{|anaBdt g|} 
+          \ar[r]^-{|g|} 
+& 
+      |FC| 
+          \ar[u]^-{|id + id >< (anaBdt g >< anaBdt g)|} 
+}
+\end{eqnarray*}
 
 \paragraph*{extLTree}\mbox{} \\
 
