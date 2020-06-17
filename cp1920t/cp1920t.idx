@@ -110,8 +110,8 @@
 \indexentry{Função!\emph  {map}|hyperpage}{14}
 \indexentry{Função!\emph  {uncurry}|hyperpage}{14}
 \indexentry{Função!\emph  {uncurry}|hyperpage}{14}
-\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{14}
-\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{14}
+\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{15}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{15}
 \indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{15}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{15}
 \indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{15}
@@ -175,4 +175,9 @@
 \indexentry{Função!$\pi _1$|hyperpage}{17}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{Functor|hyperpage}{18}
+\indexentry{Functor|hyperpage}{18}
+\indexentry{Functor|hyperpage}{18}
+\indexentry{Função!$\pi _1$|hyperpage}{18}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{18}
 \indexentry{Função!\emph  {uncurry}|hyperpage}{18}

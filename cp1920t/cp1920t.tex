@@ -1404,6 +1404,8 @@ outras funções auxiliares que sejam necessárias.
 \\[\blanklineskip]%
 \>[B]{}\Varid{dic\char95 in}\mathbin{::}\Conid{String}\to \Conid{String}\to \Conid{Dict}\to \Conid{Dict}{}\<[E]%
 \\
+\>[B]{}\Varid{dic\char95 in}\;\text{\ttfamily \char34 \char34}\;\anonymous \;\Varid{z}\mathrel{=}\Varid{z}{}\<[E]%
+\\
 \>[B]{}\Varid{dic\char95 in}\;\Varid{x}\;\Varid{y}\;\Varid{z}\mathrel{=}\Varid{f}\;((\Varid{x},\Varid{y}),\Varid{z}){}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
@@ -1807,6 +1809,26 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
+
+
+\subsubsection*{Diagramas}
+
+\paragraph*{bnavLTree}\mbox{} \\
+\begin{eqnarray*}
+\xymatrix@C=4cm{
+    \ensuremath{\mathsf{LTree}\;\Conid{A}}
+        \ar[d]^-{\ensuremath{\Varid{bnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}}}
+        \ar[r]^-{outLTree}
+&
+    \ensuremath{\Conid{A}\mathbin{+}(\mathsf{LTree}\;\Conid{A}\times\mathsf{LTree}\;\Conid{A})}
+        \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{bnavLTree}\times\Varid{bnavLTree})}}
+\\
+    \ensuremath{\mathsf{LTree}\;\Conid{A}\;^{\fun{BTree} \ Bool}}
+&
+    \ensuremath{\Conid{A}\mathbin{+}(\mathsf{LTree}\;\Conid{A}\;^{\fun{BTree} \ Bool}\times\mathsf{LTree}\;\Conid{A}\;^{\fun{BTree} \ Bool})}
+        \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{curry}\;(\Conid{Leaf}\comp \p1)}{\Varid{aux}}}}
+}
+\end{eqnarray*}
 
 \subsection*{Problema 5}
 

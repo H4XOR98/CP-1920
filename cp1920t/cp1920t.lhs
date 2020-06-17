@@ -92,6 +92,7 @@
 %format (anaBdt (g)) = "\ana{" g "}"
 %format list = "^*"
 %format expoentBool = "^{Bool\ "list"}"
+%format expoentBTreeBool = "^{"BTree"\ Bool}"
 
 %---------------------------------------------------------------------------
 
@@ -993,6 +994,7 @@ dic_rd p t = (if(result == []) then nothing else Just) result where
   result = (concat . map p2 . filter ((p==).p1) . dic_exp) t
 
 dic_in :: String -> String -> Dict -> Dict
+dic_in "" _ z = z
 dic_in x y z = f ((x, y), z)
   where
     f = dic_imp . (sortBy compare) . conc . (singl >< id) . ((split p1 (singl . p2) ) >< dic_exp)
@@ -1308,8 +1310,27 @@ pbnavLTree = cataLTree g where
     aux (esq,dir) Empty =  undefined--(>>=) . return . Fork
     aux (esq,dir) (Node(r,(e,d))) = undefined
 
-
 \end{code}
+
+
+\subsubsection*{Diagramas}
+
+\paragraph*{bnavLTree}\mbox{} \\
+\begin{eqnarray*}
+\xymatrix@@C=4cm{
+    |LTree A|
+        \ar[d]^-{|bnavLTree = cataLTree g|}
+        \ar[r]^-{outLTree}
+&
+    |A + (LTree A >< LTree A)|
+        \ar[d]^-{|id + (bnavLTree >< bnavLTree)|}
+\\
+    |LTree A expoentBTreeBool|
+&
+    |A + (LTree A expoentBTreeBool >< LTree A expoentBTreeBool)|
+        \ar[l]^-{|g= either (curry (Leaf . p1)) aux|}
+}
+\end{eqnarray*}
 
 \subsection*{Problema 5}
 
