@@ -1306,9 +1306,9 @@ bnavLTree = cataLTree g where
     aux (esq,dir) (Node(r,(e,d))) = if(r == True) then esq e else dir d
 
 pbnavLTree = cataLTree g where 
-  g = either (\a _ -> D[(Leaf a, 1)]) aux where
-    aux (esq,dir) Empty =  undefined--(>>=) . return . Fork
-    aux (esq,dir) (Node(r,(e,d))) = undefined
+  g = either (\x _ -> D $ singl (Leaf x, 1)) aux where
+    aux (esq,dir) Empty =  (>>=) (prod (esq Empty) (dir Empty)) (return . Fork)
+    aux (esq,dir) (Node(r,(e,d))) = do { r' <- r; if (r' == True) then esq e else dir d}
 
 \end{code}
 

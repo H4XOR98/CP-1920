@@ -1799,14 +1799,14 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[B]{}\Varid{pbnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\Varid{g}\mathrel{=}\alt{\lambda \Varid{a}\;\anonymous \to \Conid{D}\;[\mskip1.5mu (\Conid{Leaf}\;\Varid{a},\mathrm{1})\mskip1.5mu]}{\Varid{aux}}\;\mathbf{where}{}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\alt{\lambda \Varid{x}\;\anonymous \to \Conid{D}\mathbin{\$}\Varid{singl}\;(\Conid{Leaf}\;\Varid{x},\mathrm{1})}{\Varid{aux}}\;\mathbf{where}{}\<[E]%
 \\
 \>[3]{}\hsindent{2}{}\<[5]%
 \>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;\Conid{Empty}\mathrel{=}{}\<[28]%
-\>[28]{}\bot \mbox{\onelinecomment (>>=) . return . Fork}{}\<[E]%
+\>[28]{}(\bind )\;(\Varid{prod}\;(\Varid{esq}\;\Conid{Empty})\;(\Varid{dir}\;\Conid{Empty}))\;(\Varid{return}\comp \Conid{Fork}){}\<[E]%
 \\
 \>[3]{}\hsindent{2}{}\<[5]%
-\>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\bot {}\<[E]%
+\>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\mathbf{do}\;\{\mskip1.5mu \Varid{r'}\leftarrow \Varid{r};\mathbf{if}\;(\Varid{r'}\equiv \Conid{True})\;\mathbf{then}\;\Varid{esq}\;\Varid{e}\;\mathbf{else}\;\Varid{dir}\;\Varid{d}\mskip1.5mu\}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 
