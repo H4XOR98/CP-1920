@@ -1632,6 +1632,24 @@ BTree\ A
 \end{eqnarray*}
 
 
+\paragraph*{splay}\mbox{} \\ 
+\begin{eqnarray*}
+\xymatrix@C=4cm@R=3cm{
+      \ensuremath{\fun{BTree} \;\Conid{A}}
+          \ar[d]^-{\ensuremath{\cata{\Varid{g}}}} 
+          \ar[r]^-{\ensuremath{\Varid{outBTree}}}
+&
+      \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\fun{BTree} \;\Conid{A}\times\fun{BTree} \;\Conid{A})} 
+          \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times(\cata{\Varid{g}}\times\cata{\Varid{g}})}} 
+\\
+      \ensuremath{\fun{BTree} \;\Conid{A}\;^{Bool\ ^*}} 
+& 
+      \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\times(\fun{BTree} \;\Conid{A}\;^{Bool\ ^*}\times\fun{BTree} \;\Conid{A}\;^{Bool\ ^*})}
+          \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{curry}\;\underline{\Conid{Empty}}}{\Varid{aux}}}} 
+}
+\end{eqnarray*}
+
+
 
 \subsubsection*{Funções Auxiliares}
 
@@ -1745,7 +1763,10 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{26}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{28}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment bnavLTree :: LTree a -> ((BTree Bool) -> LTree a)}{}\<[E]%
+\\
 \>[B]{}\Varid{bnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
@@ -1758,10 +1779,19 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[3]{}\hsindent{2}{}\<[5]%
 \>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\mathbf{if}\;(\Varid{r}\equiv \Conid{True})\;\mathbf{then}\;\Varid{esq}\;\Varid{e}\;\mathbf{else}\;\Varid{dir}\;\Varid{d}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{pbnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}{}\<[E]%
+\>[B]{}\mbox{\onelinecomment pbnavLTree :: LTree a -> ((BTree (Dist Bool)) -> Dist(LTree a))}{}\<[E]%
+\\
+\>[B]{}\Varid{pbnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
-\>[3]{}\mathbf{where}\;\Varid{g}\mathrel{=}\bot {}\<[E]%
+\>[3]{}\Varid{g}\mathrel{=}\alt{\lambda \Varid{a}\;\anonymous \to \Conid{D}\;[\mskip1.5mu (\Conid{Leaf}\;\Varid{a},\mathrm{1})\mskip1.5mu]}{\Varid{aux}}\;\mathbf{where}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;\Conid{Empty}\mathrel{=}{}\<[28]%
+\>[28]{}\bot \mbox{\onelinecomment (>>=) . return . Fork}{}\<[E]%
+\\
+\>[3]{}\hsindent{2}{}\<[5]%
+\>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\bot {}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
 

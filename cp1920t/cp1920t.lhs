@@ -91,6 +91,7 @@
 %format (cataBdt (g)) = "\cata{" g "}"
 %format (anaBdt (g)) = "\ana{" g "}"
 %format list = "^*"
+%format expoentBool = "^{Bool\ "list"}"
 
 %---------------------------------------------------------------------------
 
@@ -1178,6 +1179,24 @@ BTree\ A
 \end{eqnarray*}
 
 
+\paragraph*{splay}\mbox{} \\ 
+\begin{eqnarray*}
+\xymatrix@@C=4cm@@R=3cm{
+      |BTree A|
+          \ar[d]^-{|cataBTree g|} 
+          \ar[r]^-{|outBTree|}
+&
+      |1 + A >< (BTree A >< BTree A)| 
+          \ar[d]^-{|id + id >< (cataBTree g >< cataBTree g)|} 
+\\
+      |BTree A expoentBool| 
+& 
+      |1 + A ><(BTree A expoentBool >< BTree A expoentBool)|
+          \ar[l]^-{|g = either(curry (const Empty)) aux|} 
+}
+\end{eqnarray*}
+
+
 
 \subsubsection*{Funções Auxiliares}
 
@@ -1262,14 +1281,18 @@ navLTree = cataLTree g where
 \subsection*{Problema 4}
 
 \begin{code}
+--bnavLTree :: LTree a -> ((BTree Bool) -> LTree a)
 bnavLTree = cataLTree g where
   g = either (curry (Leaf . p1)) aux where
     aux (esq,dir) Empty  = Fork (esq Empty , dir Empty)
     aux (esq,dir) (Node(r,(e,d))) = if(r == True) then esq e else dir d
 
+--pbnavLTree :: LTree a -> ((BTree (Dist Bool)) -> Dist(LTree a))
+pbnavLTree = cataLTree g where 
+  g = either (\a _ -> D[(Leaf a, 1)]) aux where
+    aux (esq,dir) Empty =  undefined--(>>=) . return . Fork
+    aux (esq,dir) (Node(r,(e,d))) = undefined
 
-pbnavLTree = cataLTree g
-  where g = undefined 
 
 \end{code}
 
