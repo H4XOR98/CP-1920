@@ -1756,6 +1756,23 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 
 \paragraph*{navLTree}\mbox{} \\
 
+\begin{eqnarray*}
+\xymatrix@C=4cm{
+    \ensuremath{\mathsf{LTree}\;\Conid{A}}
+        \ar[d]^-{\ensuremath{\Varid{navLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}}}
+        \ar[r]^-{outLTree}
+&
+    \ensuremath{\Conid{A}\mathbin{+}(\mathsf{LTree}\;\Conid{A}\times\mathsf{LTree}\;\Conid{A})}
+        \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}(\Varid{navLTree}\times\Varid{navLTree})}}
+\\
+    \ensuremath{\mathsf{LTree}\;\Conid{A}\;^{Bool\ ^*}}
+&
+    \ensuremath{\Conid{A}\mathbin{+}(\mathsf{LTree}\;\Conid{A}\;^{Bool\ ^*}\times\mathsf{LTree}\;\Conid{A}\;^{Bool\ ^*})}
+        \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{curry}\;(\Conid{Leaf}\comp \p1)}{\Varid{aux}}}}
+}
+\end{eqnarray*}
+
+
 \subsection*{Problema 4}
 
 \begin{hscode}\SaveRestoreHook
@@ -1765,8 +1782,6 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \column{26}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{28}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\mbox{\onelinecomment bnavLTree :: LTree a -> ((BTree Bool) -> LTree a)}{}\<[E]%
-\\
 \>[B]{}\Varid{bnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
@@ -1779,8 +1794,6 @@ Testa se o parâmetro recebido do tipo Maybe é Nothing e devolve o valor de ver
 \>[3]{}\hsindent{2}{}\<[5]%
 \>[5]{}\Varid{aux}\;(\Varid{esq},\Varid{dir})\;(\Conid{Node}\;(\Varid{r},(\Varid{e},\Varid{d})))\mathrel{=}\mathbf{if}\;(\Varid{r}\equiv \Conid{True})\;\mathbf{then}\;\Varid{esq}\;\Varid{e}\;\mathbf{else}\;\Varid{dir}\;\Varid{d}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\mbox{\onelinecomment pbnavLTree :: LTree a -> ((BTree (Dist Bool)) -> Dist(LTree a))}{}\<[E]%
-\\
 \>[B]{}\Varid{pbnavLTree}\mathrel{=}\Varid{cataLTree}\;\Varid{g}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%

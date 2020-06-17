@@ -1278,16 +1278,31 @@ navLTree = cataLTree g where
 
 \paragraph*{navLTree}\mbox{} \\
 
+\begin{eqnarray*}
+\xymatrix@@C=4cm{
+    |LTree A|
+        \ar[d]^-{|navLTree = cataLTree g|}
+        \ar[r]^-{outLTree}
+&
+    |A + (LTree A >< LTree A)|
+        \ar[d]^-{|id + (navLTree >< navLTree)|}
+\\
+    |LTree A expoentBool|
+&
+    |A + (LTree A expoentBool >< LTree A expoentBool)|
+        \ar[l]^-{|g= either (curry (Leaf . p1)) aux|}
+}
+\end{eqnarray*}
+
+
 \subsection*{Problema 4}
 
 \begin{code}
---bnavLTree :: LTree a -> ((BTree Bool) -> LTree a)
 bnavLTree = cataLTree g where
   g = either (curry (Leaf . p1)) aux where
     aux (esq,dir) Empty  = Fork (esq Empty , dir Empty)
     aux (esq,dir) (Node(r,(e,d))) = if(r == True) then esq e else dir d
 
---pbnavLTree :: LTree a -> ((BTree (Dist Bool)) -> Dist(LTree a))
 pbnavLTree = cataLTree g where 
   g = either (\a _ -> D[(Leaf a, 1)]) aux where
     aux (esq,dir) Empty =  undefined--(>>=) . return . Fork
